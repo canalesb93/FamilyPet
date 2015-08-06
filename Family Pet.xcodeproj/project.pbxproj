@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6531B73390400EF07C3 /* AppDelegate.swift */; };
-		0AA0D6561B73390400EF07C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6551B73390400EF07C3 /* ViewController.swift */; };
+		0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6551B73390400EF07C3 /* LoginViewController.swift */; };
 		0AA0D6591B73390400EF07C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D6571B73390400EF07C3 /* Main.storyboard */; };
 		0AA0D65B1B73390400EF07C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D65A1B73390400EF07C3 /* Images.xcassets */; };
 		0AA0D65E1B73390400EF07C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D65C1B73390400EF07C3 /* LaunchScreen.xib */; };
@@ -26,6 +26,10 @@
 		0AA0D6891B733A4500EF07C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D6881B733A4500EF07C3 /* SystemConfiguration.framework */; };
 		0AA0D68B1B733A4E00EF07C3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D68A1B733A4E00EF07C3 /* libz.dylib */; };
 		0AA0D68D1B733A5600EF07C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D68C1B733A5600EF07C3 /* libsqlite3.dylib */; };
+		0AA0D6901B7340AB00EF07C3 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D68F1B7340AB00EF07C3 /* ParseFacebookUtilsV4.framework */; };
+		0AA0D6941B73414200EF07C3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D6911B73414200EF07C3 /* FBSDKCoreKit.framework */; };
+		0AA0D6951B73414200EF07C3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D6921B73414200EF07C3 /* FBSDKLoginKit.framework */; };
+		0AA0D6961B73414200EF07C3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D6931B73414200EF07C3 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +46,7 @@
 		0AA0D64E1B73390400EF07C3 /* Family Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Pet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0D6521B73390400EF07C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA0D6531B73390400EF07C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AA0D6551B73390400EF07C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0AA0D6551B73390400EF07C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AA0D6581B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AA0D65A1B73390400EF07C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AA0D65D1B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -62,6 +66,11 @@
 		0AA0D6881B733A4500EF07C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0AA0D68A1B733A4E00EF07C3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0AA0D68C1B733A5600EF07C3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0AA0D68E1B733FC900EF07C3 /* Familiy-Pet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Familiy-Pet-Bridging-Header.h"; path = "../Familiy-Pet-Bridging-Header.h"; sourceTree = "<group>"; };
+		0AA0D68F1B7340AB00EF07C3 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		0AA0D6911B73414200EF07C3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0AA0D6921B73414200EF07C3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		0AA0D6931B73414200EF07C3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +80,8 @@
 			files = (
 				0AA0D68D1B733A5600EF07C3 /* libsqlite3.dylib in Frameworks */,
 				0AA0D68B1B733A4E00EF07C3 /* libz.dylib in Frameworks */,
+				0AA0D6961B73414200EF07C3 /* FBSDKShareKit.framework in Frameworks */,
+				0AA0D6901B7340AB00EF07C3 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				0AA0D6891B733A4500EF07C3 /* SystemConfiguration.framework in Frameworks */,
 				0AA0D6871B733A4000EF07C3 /* StoreKit.framework in Frameworks */,
 				0AA0D6851B733A3A00EF07C3 /* Security.framework in Frameworks */,
@@ -78,9 +89,11 @@
 				0AA0D6811B733A2D00EF07C3 /* CoreLocation.framework in Frameworks */,
 				0AA0D67F1B733A2700EF07C3 /* CoreGraphics.framework in Frameworks */,
 				0AA0D67D1B733A2000EF07C3 /* CFNetwork.framework in Frameworks */,
+				0AA0D6941B73414200EF07C3 /* FBSDKCoreKit.framework in Frameworks */,
 				0AA0D67B1B733A1B00EF07C3 /* AudioToolbox.framework in Frameworks */,
 				0AA0D6781B7339C200EF07C3 /* ParseUI.framework in Frameworks */,
 				0AA0D6771B7339C200EF07C3 /* Parse.framework in Frameworks */,
+				0AA0D6951B73414200EF07C3 /* FBSDKLoginKit.framework in Frameworks */,
 				0AA0D6761B7339C200EF07C3 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,11 +131,13 @@
 			isa = PBXGroup;
 			children = (
 				0AA0D6531B73390400EF07C3 /* AppDelegate.swift */,
-				0AA0D6551B73390400EF07C3 /* ViewController.swift */,
+				0AA0D6981B7343FA00EF07C3 /* Models */,
+				0AA0D6971B7343E500EF07C3 /* Views */,
 				0AA0D6571B73390400EF07C3 /* Main.storyboard */,
 				0AA0D65A1B73390400EF07C3 /* Images.xcassets */,
 				0AA0D65C1B73390400EF07C3 /* LaunchScreen.xib */,
 				0AA0D6511B73390400EF07C3 /* Supporting Files */,
+				0AA0D68E1B733FC900EF07C3 /* Familiy-Pet-Bridging-Header.h */,
 			);
 			path = "Family Pet";
 			sourceTree = "<group>";
@@ -155,6 +170,10 @@
 		0AA0D6791B7339CD00EF07C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AA0D6911B73414200EF07C3 /* FBSDKCoreKit.framework */,
+				0AA0D6921B73414200EF07C3 /* FBSDKLoginKit.framework */,
+				0AA0D6931B73414200EF07C3 /* FBSDKShareKit.framework */,
+				0AA0D68F1B7340AB00EF07C3 /* ParseFacebookUtilsV4.framework */,
 				0AA0D68C1B733A5600EF07C3 /* libsqlite3.dylib */,
 				0AA0D68A1B733A4E00EF07C3 /* libz.dylib */,
 				0AA0D6881B733A4500EF07C3 /* SystemConfiguration.framework */,
@@ -170,6 +189,21 @@
 				0AA0D6751B7339C200EF07C3 /* ParseUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AA0D6971B7343E500EF07C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0D6551B73390400EF07C3 /* LoginViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0AA0D6981B7343FA00EF07C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA0D6561B73390400EF07C3 /* ViewController.swift in Sources */,
+				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +443,7 @@
 				INFOPLIST_FILE = "Family Pet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Familiy-Pet-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -424,6 +459,7 @@
 				INFOPLIST_FILE = "Family Pet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Familiy-Pet-Bridging-Header.h";
 			};
 			name = Release;
 		};
