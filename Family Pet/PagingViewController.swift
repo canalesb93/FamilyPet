@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+var navBarHeight: CGFloat?
+var pagingBarHeight: CGFloat?
+
 class PagingViewController: UIViewController, PagingMenuControllerDelegate {
 
     override func viewDidLoad() {
@@ -23,10 +27,13 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
+        navBarHeight = self.navigationController?.navigationBar.frame.size.height
+        pagingBarHeight = CGFloat(40.0)
+
         
         
         // INITIATE PAGING MENU
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as! PetsViewController
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("PetScrollViewController") as! PetScrollViewController
         viewController.title = "pets"
         let viewController2 = self.storyboard?.instantiateViewControllerWithIdentifier("FeedViewController") as! FeedViewController
         viewController2.title = "feed"
@@ -48,7 +55,7 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
 
         
         options.menuItemMode = PagingMenuOptions.MenuItemMode.None
-        options.menuHeight = CGFloat(40.0)
+        options.menuHeight = pagingBarHeight!
         options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: false, scrollingMode: .PagingEnabled)
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
         pagingMenuController.delegate = self
