@@ -14,6 +14,7 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         super.viewDidLoad()
         
         //CONFIGURING NAVBAR
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         // let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(30)] as Dictionary!
         // userConfig.setTitleTextAttributes(attributes, forState: .Normal)
         // userConfig.tintColor = UIColor(netHex: 0x4C4C4F)
@@ -43,10 +44,12 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         
         options.selectedTextColor = UIColor(netHex: 0xF7F7FF)
         options.textColor = UIColor(netHex: 0x4C4C4F)
+        options.font = UIFont(name: "HelveticaNeue-Light", size: 18)!
+
+        
         options.menuItemMode = PagingMenuOptions.MenuItemMode.None
         options.menuHeight = CGFloat(40.0)
-        
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: true, scrollingMode: .PagingEnabled)
+        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: false, scrollingMode: .PagingEnabled)
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
         pagingMenuController.delegate = self
 
@@ -58,6 +61,12 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+    }
 
     /*
     // MARK: - Navigation
