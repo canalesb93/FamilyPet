@@ -9,12 +9,14 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    var intent = false
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var facebookButton: UIButton!
     
     let facebook_permissions = ["public_profile", "email", "user_friends"]
-    let feed_identifier = "FeedIdentifier"
+    let initial_segue_identifier = "PagingSegueIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,17 @@ class LoginViewController: UIViewController {
         
 
     }
-
+    
+    // Login user automatically
+    override func viewDidAppear(animated: Bool) {
+        if let user = PFUser.currentUser() {
+            if user.isAuthenticated() && intent == false {
+                self.performSegueWithIdentifier(self.initial_segue_identifier, sender: facebookButton)
+            }
+        }
+    }
+    
+    // Facebook Button
     @IBAction func doConnect(sender: AnyObject) {
         PFFacebookUtils.logInInBackgroundWithReadPermissions(facebook_permissions) {
             (user: PFUser?, error: NSError?) -> Void in
@@ -37,13 +49,39 @@ class LoginViewController: UIViewController {
                     println("User signed up and logged in through Facebook!")
                 } else {
                     println("User logged in through Facebook!")
+                    self.intent = true
                 }
-                self.performSegueWithIdentifier(self.feed_identifier, sender: nil)
+                self.performSegueWithIdentifier(self.initial_segue_identifier, sender: nil)
 
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
         }
+    }
+    
+    let transition = BubbleTransition()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? UIViewController {
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        }
+    }
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        transition.startingPoint = facebookButton.center
+        transition.bubbleColor = UIColor(netHex: 0xF7F7FF)
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        transition.startingPoint = facebookButton.center
+        transition.bubbleColor = facebookButton.backgroundColor!
+        return transition
     }
     
     override func didReceiveMemoryWarning() {
