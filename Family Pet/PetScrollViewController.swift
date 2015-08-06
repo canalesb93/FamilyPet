@@ -8,7 +8,14 @@
 
 import UIKit
 
-class PetScrollViewController: UIViewController {
+// Declare this protocol outside the class
+protocol PetScrollView {
+    // This method allows a child to tell the parent view controller
+    // to change to a different child view
+    func moveToView(viewNum: Int)
+}
+
+class PetScrollViewController: UIViewController, PetScrollView {
 
     @IBOutlet var scrollView: UIScrollView!
     override func viewDidLoad() {
@@ -16,10 +23,9 @@ class PetScrollViewController: UIViewController {
         
         
         // 1) Create the three views used in the swipe container view
-        var PetsViewController = storyboard!.instantiateViewControllerWithIdentifier("PetsViewController") as! UIViewController
-        var NewPetViewController = storyboard!.instantiateViewControllerWithIdentifier("NewPetViewController") as! UIViewController
+        var PetsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PetsListController") as! ListViewController
+        var NewPetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NewPetController") as! AddPetViewController
 
-//        var AVc :AViewController =  AViewController(nibName: "AViewController", bundle: nil);
 //        var BVc :BViewController =  BViewController(nibName: "BViewController", bundle: nil);
 //        var CVc :CViewController =  CViewController(nibName: "CViewController", bundle: nil);
         
@@ -49,6 +55,8 @@ class PetScrollViewController: UIViewController {
         var scrollHeight: CGFloat  = 2 * (self.view.frame.size.height - navBarHeight! - pagingBarHeight! - CGFloat(20.0) )
         self.scrollView!.contentSize = CGSizeMake(scrollWidth, scrollHeight);
         
+        PetsViewController.delegate = self
+        NewPetViewController.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -58,16 +66,13 @@ class PetScrollViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /// Make sure you add this method to conform to the protocol
+    func moveToView(viewNum: Int) {
+        // Determine the offset in the scroll view we need to move to
+        var yPos: CGFloat = self.view.frame.height * CGFloat(viewNum)
+        self.scrollView.setContentOffset(CGPointMake(0,yPos), animated: true)
     }
-    */
 
 }

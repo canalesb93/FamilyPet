@@ -1,5 +1,5 @@
 //
-//  NewPetViewController.swift
+//  AddPetViewController.swift
 //  Family Pet
 //
 //  Created by Ricardo Canales on 8/6/15.
@@ -9,8 +9,11 @@
 import UIKit
 import Parse
 
-class NewPetViewController: UIViewController {
 
+class AddPetViewController: UIViewController, UITextFieldDelegate {
+
+    var delegate: PetScrollView!
+    
     @IBOutlet var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet var petProfile: UIImageView!
     @IBOutlet var nameLabel: UITextField!
@@ -21,7 +24,7 @@ class NewPetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         petProfile.layer.cornerRadius = petProfile.frame.size.width / 2;
         petProfile.clipsToBounds = true
         petProfile.layer.borderWidth = 3.0;
@@ -29,18 +32,35 @@ class NewPetViewController: UIViewController {
         
         nameLabel.borderStyle = UITextBorderStyle.Line
         nameLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
-        nameLabel.attributedPlaceholder = NSAttributedString(string:"placeholder text",
+        nameLabel.attributedPlaceholder = NSAttributedString(string:"name",
             attributes:[NSForegroundColorAttributeName: UIColor(netHex: 0xC8C8D2)])
+        nameLabel.delegate = self
         
         descriptionLabel.layer.borderWidth = 1.0
         descriptionLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
-        descriptionLabel.attributedPlaceholder = NSAttributedString(string:"placeholder text",
+        descriptionLabel.attributedPlaceholder = NSAttributedString(string:"description, breed, sex",
             attributes:[NSForegroundColorAttributeName: UIColor(netHex: 0xC8C8D2)])
+        descriptionLabel.delegate = self
         // Do any additional setup after loading the view.
         
-        segmentedControl.items = ["Dog", "Cat", "Other"]
+        segmentedControl.items = ["dog", "cat", "other"]
         segmentedControl.selectedIndex = 1
         segmentedControl.addTarget(self, action: "segmentValueChanged:", forControlEvents: .ValueChanged)
+        
+        //Looks for single or multiple taps.
+//        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+//        view.addGestureRecognizer(tap)
+    }
+    
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // hide keyboard on enter
+        self.view.endEditing(true)
+        return false
     }
     
     @IBAction func takePicture(sender: AnyObject) {
@@ -52,6 +72,7 @@ class NewPetViewController: UIViewController {
     }
     
     @IBAction func cancel(sender: AnyObject) {
+        self.delegate!.moveToView(0)
     }
     
     @IBAction func save(sender: AnyObject) {
@@ -65,7 +86,7 @@ class NewPetViewController: UIViewController {
         
         
         
-
+        
         let pictureData = UIImageJPEGRepresentation(petProfile.image!, CGFloat(0.75))
         let file = PFFile(name: "image", data: pictureData)
         
@@ -76,7 +97,7 @@ class NewPetViewController: UIViewController {
             } else if let error = error {
                 //3
                 println("Error \(error)")
-//                self.showErrorView(error)
+                //                self.showErrorView(error)
             }
             }, progressBlock: { percent in
                 //4
@@ -93,7 +114,7 @@ class NewPetViewController: UIViewController {
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,7 +128,7 @@ class NewPetViewController: UIViewController {
         
         // let’s say we have a few objects representing Author objects
         let ownerOne = PFUser.currentUser()!
-
+        
         
         let pet = Pet(image: newFile, user: PFUser.currentUser()!, petName: self.nameLabel.text, petDescription: self.descriptionLabel.text)
         let relation = pet.relationForKey("owners")
@@ -117,14 +138,14 @@ class NewPetViewController: UIViewController {
             if succeeded {
                 //3
                 self.dismissViewControllerAnimated(true, completion: nil)
-//                var next = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as! PetsViewController
-//                self.presentViewController(next, animated: true, completion: nil)
+                //                var next = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as! PetsViewController
+                //                self.presentViewController(next, animated: true, completion: nil)
                 
             } else {
                 //4
                 if let errorMessage = error?.userInfo?["error"] as? String {
                     println("Error: \(error)")
-//                    self.showErrorView(error!)
+                    //                    self.showErrorView(error!)
                 }
             }
         }
@@ -132,20 +153,11 @@ class NewPetViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
 
-extension NewPetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddPetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         //Place the image in the imageview
@@ -153,7 +165,9 @@ extension NewPetViewController: UIImagePickerControllerDelegate, UINavigationCon
         petProfile.image = image
         imageAdded = true
         
-        
         picker.dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.delegate!.moveToView(1)
+
     }
 }

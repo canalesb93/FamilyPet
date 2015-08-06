@@ -37,14 +37,15 @@
 		0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A01B734AFE00EF07C3 /* PagingMenuController.swift */; };
 		0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A11B734AFE00EF07C3 /* PagingMenuOptions.swift */; };
 		0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */; };
-		0AA0D6A91B734D7D00EF07C3 /* PetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A81B734D7D00EF07C3 /* PetsViewController.swift */; };
 		0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */; };
 		0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */; };
-		0AA0D6AF1B735E0C00EF07C3 /* PetScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */; };
-		0AA0D6B21B735EDC00EF07C3 /* NewPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B11B735EDC00EF07C3 /* NewPetViewController.swift */; };
 		0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */; };
 		0AA0D6B61B73784200EF07C3 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B51B73784200EF07C3 /* Pet.swift */; };
 		0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */; };
+		0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */; };
+		0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */; };
+		0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C51B74092700C31F33 /* AddPetViewController.swift */; };
+		0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C71B740B6A00C31F33 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,7 @@
 		0AA0D64E1B73390400EF07C3 /* Family Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Pet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0D6521B73390400EF07C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA0D6531B73390400EF07C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AA0D6551B73390400EF07C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AA0D6551B73390400EF07C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AA0D6581B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AA0D65A1B73390400EF07C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AA0D65D1B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -93,14 +94,15 @@
 		0AA0D6A01B734AFE00EF07C3 /* PagingMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController.swift; sourceTree = "<group>"; };
 		0AA0D6A11B734AFE00EF07C3 /* PagingMenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuOptions.swift; sourceTree = "<group>"; };
 		0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
-		0AA0D6A81B734D7D00EF07C3 /* PetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetScrollViewController.swift; sourceTree = "<group>"; };
-		0AA0D6B11B735EDC00EF07C3 /* NewPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPetViewController.swift; sourceTree = "<group>"; };
 		0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADVSegmentedControl.swift; sourceTree = "<group>"; };
 		0AA0D6B51B73784200EF07C3 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTextFields.swift; sourceTree = "<group>"; };
+		0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionTextField.swift; sourceTree = "<group>"; };
+		0ABC60C51B74092700C31F33 /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
+		0ABC60C71B740B6A00C31F33 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA0D6531B73390400EF07C3 /* AppDelegate.swift */,
+				0ABC60C41B7408E300C31F33 /* Pets */,
 				0AA0D6981B7343FA00EF07C3 /* Classes */,
 				0AA0D6971B7343E500EF07C3 /* Views */,
 				0AA0D6B01B735E9800EF07C3 /* Other */,
@@ -225,12 +228,11 @@
 		0AA0D6971B7343E500EF07C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0AA0D6B11B735EDC00EF07C3 /* NewPetViewController.swift */,
 				0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */,
 				0AA0D6551B73390400EF07C3 /* LoginViewController.swift */,
 				0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */,
-				0AA0D6A81B734D7D00EF07C3 /* PetsViewController.swift */,
 				0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */,
+				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -261,10 +263,19 @@
 			isa = PBXGroup;
 			children = (
 				0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */,
-				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
+				0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */,
 				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		0ABC60C41B7408E300C31F33 /* Pets */ = {
+			isa = PBXGroup;
+			children = (
+				0ABC60C71B740B6A00C31F33 /* ListViewController.swift */,
+				0ABC60C51B74092700C31F33 /* AddPetViewController.swift */,
+			);
+			name = Pets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,20 +379,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */,
 				0AA0D69A1B73483700EF07C3 /* BubbleTransition.swift in Sources */,
 				0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */,
 				0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */,
 				0AA0D6A31B734AFE00EF07C3 /* MenuView.swift in Sources */,
 				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
-				0AA0D6AF1B735E0C00EF07C3 /* PetScrollViewController.swift in Sources */,
-				0AA0D6A91B734D7D00EF07C3 /* PetsViewController.swift in Sources */,
 				0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */,
-				0AA0D6B21B735EDC00EF07C3 /* NewPetViewController.swift in Sources */,
 				0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */,
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
+				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
+				0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */,
 				0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */,
+				0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */,
 				0AA0D6B61B73784200EF07C3 /* Pet.swift in Sources */,
 				0AA0D69C1B7349E600EF07C3 /* UIColorExtension.swift in Sources */,
 				0AA0D6A21B734AFE00EF07C3 /* MenuItemView.swift in Sources */,
