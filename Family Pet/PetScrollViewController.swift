@@ -18,46 +18,91 @@ protocol PetScrollView {
 class PetScrollViewController: UIViewController, PetScrollView {
 
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
+    
+    // A strong reference to the width contraint of the contentView
+    var contentViewConstraint: NSLayoutConstraint!
+    
+    var controllers = [UIViewController]()
+
+    var bottomConstraint: NSLayoutConstraint!
+    var topConstraint: NSLayoutConstraint!
+    var trailingConstraint: NSLayoutConstraint!
+    var leadingConstraint: NSLayoutConstraint!
+    var heightConstraint: NSLayoutConstraint!
+    // A computed version of this reference
+
+    var computedContentViewConstraint: NSLayoutConstraint {
+        return NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: .Height, multiplier: CGFloat(controllers.count + 1), constant: 0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // 1) Create the three views used in the swipe container view
-        var PetsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PetsListController") as! ListViewController
-        var NewPetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NewPetController") as! AddPetViewController
+        initScrollView()
+        scrollView.keyboardDismissMode = .OnDrag
 
-//        var BVc :BViewController =  BViewController(nibName: "BViewController", bundle: nil);
-//        var CVc :CViewController =  CViewController(nibName: "CViewController", bundle: nil);
-        
-        
-        // 2) Add in each view to the container view hierarchy
-        //    Add them in opposite order since the view hieracrhy is a stack
-        
-        self.addChildViewController(NewPetViewController);
-        self.scrollView!.addSubview(NewPetViewController.view);
-        NewPetViewController.didMoveToParentViewController(self);
-        
-        self.addChildViewController(PetsViewController);
-        self.scrollView!.addSubview(PetsViewController.view);
-        PetsViewController.didMoveToParentViewController(self);
-        
-        
-        // 3) Set up the frames of the view controllers to align
-        //    with eachother inside the container view
-        var adminFrame :CGRect = PetsViewController.view.frame;
-        adminFrame.origin.y = adminFrame.height - navBarHeight! - pagingBarHeight! - CGFloat(20.0)
-        NewPetViewController.view.frame = adminFrame;
-        
-        
-
-        // 4) Finally set the size of the scroll view that contains the frames
-        var scrollWidth: CGFloat  = self.view.frame.width
-        var scrollHeight: CGFloat  = 2 * (self.view.frame.size.height - navBarHeight! - pagingBarHeight! - CGFloat(20.0) )
-        self.scrollView!.contentSize = CGSizeMake(scrollWidth, scrollHeight);
-        
-        PetsViewController.delegate = self
-        NewPetViewController.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func initScrollView(){
+        contentView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        contentViewConstraint = computedContentViewConstraint
+        view.addConstraint(contentViewConstraint)
+        
+        // Adding all the controllers you want in the scrollView
+        let NewPetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NewPetController") as! AddPetViewController
+        let PetsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PetsListController") as! ListViewController
+        
+        addToScrollViewNewController(NewPetViewController)
+        addToScrollViewNewController(PetsViewController)
+
+        NewPetViewController.delegate = self
+        PetsViewController.delegate = self
+    }
+    
+    func addToScrollViewNewController(controller: UIViewController) {
+        controller.willMoveToParentViewController(self)
+        
+        contentView.addSubview(controller.view)
+        
+        controller.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        
+        
+        heightConstraint = NSLayoutConstraint(item: controller.view, attribute: .Height, relatedBy: .Equal, toItem: scrollView, attribute: .Height, multiplier: 1.0, constant: 0)
+        
+        leadingConstraint = NSLayoutConstraint(item: contentView, attribute: .Leading, relatedBy: .Equal, toItem: controller.view, attribute: .Leading, multiplier: 1.0, constant: 0)
+        trailingConstraint = NSLayoutConstraint(item: contentView, attribute: .Trailing, relatedBy: .Equal, toItem: controller.view, attribute: .Trailing, multiplier: 1.0, constant: 0)
+        
+//        topConstraint = NSLayoutConstraint(item: contentView, attribute: .Top, relatedBy: .Equal, toItem: controller.view, attribute: .Top, multiplier: 1.0, constant: 0)
+
+        
+        // Setting all the constraints
+        if controllers.isEmpty {
+            // Since it's the first one, the trailing constraint is from the controller view to the contentView
+            bottomConstraint = NSLayoutConstraint(item: contentView, attribute: .Bottom, relatedBy: .Equal, toItem: controller.view, attribute: .Bottom, multiplier: 1.0, constant: 0)
+        }
+        else {
+            bottomConstraint = NSLayoutConstraint(item: controllers.last!.view, attribute: .Top, relatedBy: .Equal, toItem: controller.view, attribute: .Bottom, multiplier: 1.0, constant: 0)
+        }
+
+        
+        // Setting the new width constraint of the contentView
+        view.removeConstraint(contentViewConstraint)
+        contentViewConstraint = computedContentViewConstraint
+        
+        // Adding all the constraints to the view hierarchy
+        view.addConstraint(contentViewConstraint)
+        contentView.addConstraints([bottomConstraint, trailingConstraint, leadingConstraint])
+        scrollView.addConstraints([heightConstraint])
+        
+        self.addChildViewController(controller)
+        controller.didMoveToParentViewController(self)
+        
+        // Finally adding the controller in the list of controllers
+        controllers.append(controller)
     }
     
     

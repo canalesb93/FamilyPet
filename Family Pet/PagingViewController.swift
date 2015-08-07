@@ -29,8 +29,6 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
 
         navBarHeight = self.navigationController?.navigationBar.frame.size.height
         pagingBarHeight = CGFloat(40.0)
-
-        
         
         // INITIATE PAGING MENU
         let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("PetScrollViewController") as! PetScrollViewController

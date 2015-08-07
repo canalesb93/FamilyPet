@@ -44,12 +44,21 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         segmentedControl.items = ["dog", "cat", "other"]
-        segmentedControl.selectedIndex = 1
+        segmentedControl.selectedIndex = 0
         segmentedControl.addTarget(self, action: "segmentValueChanged:", forControlEvents: .ValueChanged)
         
         //Looks for single or multiple taps.
 //        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 //        view.addGestureRecognizer(tap)
+    }
+    
+    func clearData(){
+        nameLabel.text = ""
+        descriptionLabel.text = ""
+        segmentedControl.selectedIndex = 0
+        petProfile.image = UIImage(named: "dogCamera")
+        loadingSpinner.stopAnimating()
+        
     }
     
     func DismissKeyboard(){
@@ -72,6 +81,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(sender: AnyObject) {
+        clearData()
         self.delegate!.moveToView(0)
     }
     
@@ -137,9 +147,8 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         pet.saveInBackgroundWithBlock{ succeeded, error in
             if succeeded {
                 //3
-                self.dismissViewControllerAnimated(true, completion: nil)
-                //                var next = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as! PetsViewController
-                //                self.presentViewController(next, animated: true, completion: nil)
+                self.clearData()
+                self.delegate!.moveToView(0)
                 
             } else {
                 //4
@@ -165,9 +174,19 @@ extension AddPetViewController: UIImagePickerControllerDelegate, UINavigationCon
         petProfile.image = image
         imageAdded = true
         
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-        self.delegate!.moveToView(1)
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            self.delegate!.moveToView(1)
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+        })
+        
+
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            self.delegate!.moveToView(1)
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+        })
 
     }
 }

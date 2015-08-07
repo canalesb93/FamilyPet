@@ -228,11 +228,11 @@
 		0AA0D6971B7343E500EF07C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 				0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */,
 				0AA0D6551B73390400EF07C3 /* LoginViewController.swift */,
 				0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */,
 				0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */,
-				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -240,10 +240,11 @@
 		0AA0D6981B7343FA00EF07C3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
-				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
 				0AA0D6B51B73784200EF07C3 /* Pet.swift */,
+				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
 				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
+				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
+				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -264,7 +265,6 @@
 			children = (
 				0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */,
 				0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */,
-				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
