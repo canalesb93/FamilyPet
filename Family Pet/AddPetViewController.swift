@@ -27,17 +27,17 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         
         petProfile.layer.cornerRadius = petProfile.frame.size.width / 2;
         petProfile.clipsToBounds = true
-        petProfile.layer.borderWidth = 3.0;
-        petProfile.layer.borderColor = UIColor(netHex: 0xE0D59F).CGColor
+        petProfile.layer.borderWidth = 6.0;
+        petProfile.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
         
-        nameLabel.borderStyle = UITextBorderStyle.Line
-        nameLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
+        nameLabel.borderStyle = UITextBorderStyle.None
+//        nameLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
         nameLabel.attributedPlaceholder = NSAttributedString(string:"name",
             attributes:[NSForegroundColorAttributeName: UIColor(netHex: 0xC8C8D2)])
         nameLabel.delegate = self
         
-        descriptionLabel.layer.borderWidth = 1.0
-        descriptionLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
+        descriptionLabel.borderStyle = .None
+//        descriptionLabel.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
         descriptionLabel.attributedPlaceholder = NSAttributedString(string:"description, breed, sex",
             attributes:[NSForegroundColorAttributeName: UIColor(netHex: 0xC8C8D2)])
         descriptionLabel.delegate = self

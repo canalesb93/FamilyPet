@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -252,11 +253,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1No-Ez-6Sn">
-                                <rect key="frame" x="187" y="603" width="188" height="64"/>
+                                <rect key="frame" x="187" y="600.5" width="188" height="66.5"/>
                                 <color key="backgroundColor" red="0.031372549019607843" green="0.6470588235294118" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="dOM-Rt-waA"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -267,10 +265,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHs-NS-QWx">
-                                <rect key="frame" x="0.0" y="603" width="188" height="64"/>
+                                <rect key="frame" x="0.0" y="600.5" width="188.5" height="66.5"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.34509803921568627" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="cnY-rj-Pej"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="ZrJ-Ib-e8O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                 <state key="normal" title="cancel">
@@ -281,32 +279,38 @@
                                     <action selector="cancel:" destination="nOK-dz-2EE" eventType="touchUpInside" id="fdo-nl-ZQa"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-gB-ktm" customClass="PetTextFields" customModule="Family_Pet" customModuleProvider="target">
-                                <rect key="frame" x="16" y="99" width="241" height="58"/>
-                                <color key="backgroundColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5V8-Qm-F5X" customClass="PetDescriptionTextField" customModule="Family_Pet" customModuleProvider="target">
-                                <rect key="frame" x="16" y="252" width="343" height="75"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-gB-ktm" customClass="PetTextFields" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="40" y="74" width="185" height="46.5"/>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="63S-7h-KWd"/>
+                                    <constraint firstAttribute="width" secondItem="Ctd-gB-ktm" secondAttribute="height" multiplier="33:7" id="zud-OI-gzr"/>
                                 </constraints>
+                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="zud-OI-gzr"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5V8-Qm-F5X" customClass="PetDescriptionTextField" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="40" y="207" width="295" height="47"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogCamera" translatesAutoresizingMaskIntoConstraints="NO" id="wuW-G1-td0">
-                                <rect key="frame" x="265" y="81" width="94" height="94"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="PD6-Z3-HjK"/>
-                                    <constraint firstAttribute="height" constant="94" id="jBo-Ra-GXL"/>
-                                </constraints>
+                                <rect key="frame" x="241" y="27" width="94" height="94"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YQ-0R-VsW">
-                                <rect key="frame" x="265" y="81" width="94" height="94"/>
+                                <rect key="frame" x="241" y="27" width="94" height="94"/>
+                                <color key="backgroundColor" red="0.68025287828947367" green="1" blue="1" alpha="0.19" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="KMS-Wg-PNn"/>
+                                    <constraint firstAttribute="width" secondItem="4YQ-0R-VsW" secondAttribute="height" multiplier="1:1" id="Xy9-nd-o67"/>
+                                </constraints>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -315,60 +319,51 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gub-uI-770" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
-                                <rect key="frame" x="16" y="189" width="343" height="48"/>
+                                <rect key="frame" x="40" y="141" width="295" height="46.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="U8S-kf-7PM"/>
-                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBackgroundDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Zen-FG-U2d">
-                                <rect key="frame" x="86" y="28" width="202" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="SwW-eL-wck"/>
-                                    <constraint firstAttribute="width" constant="202" id="o4o-iG-xlM"/>
-                                </constraints>
-                            </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CNO-By-X6D">
-                                <rect key="frame" x="215" y="109" width="37" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add a new pet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999999999999991" translatesAutoresizingMaskIntoConstraints="NO" id="jBh-iO-6zb">
+                                <rect key="frame" x="58.5" y="35" width="148" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CNO-By-X6D">
+                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1No-Ez-6Sn" secondAttribute="trailing" id="19g-yn-gmu"/>
-                            <constraint firstItem="wuW-G1-td0" firstAttribute="trailing" secondItem="xXg-MS-kfZ" secondAttribute="trailingMargin" id="2qg-Ht-dTN"/>
-                            <constraint firstItem="gub-uI-770" firstAttribute="trailing" secondItem="xXg-MS-kfZ" secondAttribute="trailingMargin" id="2tb-bm-3OV"/>
-                            <constraint firstItem="gub-uI-770" firstAttribute="top" secondItem="4YQ-0R-VsW" secondAttribute="bottom" constant="14" id="3Oc-Ph-6wd"/>
-                            <constraint firstAttribute="centerX" secondItem="Zen-FG-U2d" secondAttribute="centerX" id="7q3-SL-SVQ"/>
-                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="trailing" secondItem="xXg-MS-kfZ" secondAttribute="trailingMargin" id="8y4-y2-N8N"/>
-                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="top" secondItem="Zen-FG-U2d" secondAttribute="bottom" constant="31" id="D6G-e1-l25"/>
-                            <constraint firstItem="CNO-By-X6D" firstAttribute="trailing" secondItem="Ctd-gB-ktm" secondAttribute="trailing" constant="-5" id="F2j-6u-bp5"/>
-                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="height" secondItem="4YQ-0R-VsW" secondAttribute="height" multiplier="0.61" id="JEr-Ti-kTU"/>
-                            <constraint firstItem="wuW-G1-td0" firstAttribute="height" secondItem="4YQ-0R-VsW" secondAttribute="height" id="Nte-rC-n9y"/>
-                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="leading" secondItem="Ctd-gB-ktm" secondAttribute="trailing" constant="8" id="OA5-fq-Xn7"/>
-                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" id="OHf-ou-OnK"/>
-                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="trailing" secondItem="xXg-MS-kfZ" secondAttribute="trailingMargin" id="RRE-RC-68o"/>
-                            <constraint firstItem="oAb-qG-Svg" firstAttribute="top" secondItem="eHs-NS-QWx" secondAttribute="bottom" id="XE0-uI-djh"/>
-                            <constraint firstItem="Zen-FG-U2d" firstAttribute="top" secondItem="w5j-Gg-yU6" secondAttribute="bottom" constant="8" id="Xbd-Xa-VBb"/>
-                            <constraint firstItem="wuW-G1-td0" firstAttribute="width" secondItem="4YQ-0R-VsW" secondAttribute="width" id="Z7t-Do-Wx5"/>
-                            <constraint firstItem="wuW-G1-td0" firstAttribute="centerY" secondItem="4YQ-0R-VsW" secondAttribute="centerY" id="awY-DO-al1"/>
-                            <constraint firstItem="gub-uI-770" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" id="cWV-1w-BdA"/>
-                            <constraint firstItem="wuW-G1-td0" firstAttribute="centerY" secondItem="Ctd-gB-ktm" secondAttribute="centerY" id="cuS-6r-vi6"/>
-                            <constraint firstItem="oAb-qG-Svg" firstAttribute="top" secondItem="1No-Ez-6Sn" secondAttribute="bottom" id="d8q-Uv-662"/>
-                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="centerY" secondItem="Ctd-gB-ktm" secondAttribute="centerY" id="etc-bD-7GA"/>
-                            <constraint firstItem="eHs-NS-QWx" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leading" id="fu2-AL-8UW"/>
-                            <constraint firstItem="CNO-By-X6D" firstAttribute="centerY" secondItem="Ctd-gB-ktm" secondAttribute="centerY" constant="-0.5" id="htA-wE-12Z"/>
-                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" id="j6b-O4-FmV"/>
-                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="top" secondItem="gub-uI-770" secondAttribute="bottom" constant="15" id="mYq-zd-zPL"/>
-                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="trailing" secondItem="xXg-MS-kfZ" secondAttribute="trailingMargin" id="naY-S5-cV7"/>
-                            <constraint firstItem="1No-Ez-6Sn" firstAttribute="width" secondItem="eHs-NS-QWx" secondAttribute="width" id="oMX-Gp-AZg"/>
-                            <constraint firstItem="1No-Ez-6Sn" firstAttribute="leading" secondItem="eHs-NS-QWx" secondAttribute="trailing" constant="-1" id="znD-G8-jp9"/>
+                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="leading" secondItem="Ctd-gB-ktm" secondAttribute="trailing" constant="16" id="0ju-Yz-F38"/>
+                            <constraint firstItem="gub-uI-770" firstAttribute="height" secondItem="Ctd-gB-ktm" secondAttribute="height" id="1e0-bY-PVC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gub-uI-770" secondAttribute="trailing" constant="24" id="1gv-dV-xz4"/>
+                            <constraint firstItem="jBh-iO-6zb" firstAttribute="width" relation="lessThanOrEqual" secondItem="Ctd-gB-ktm" secondAttribute="width" multiplier="0.8" id="1pc-Kl-kZA"/>
+                            <constraint firstItem="eHs-NS-QWx" firstAttribute="width" secondItem="1No-Ez-6Sn" secondAttribute="width" id="4RG-0V-cWC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5V8-Qm-F5X" secondAttribute="trailing" constant="24" id="5p5-4a-vfx"/>
+                            <constraint firstItem="oAb-qG-Svg" firstAttribute="top" secondItem="eHs-NS-QWx" secondAttribute="bottom" id="6IW-Zv-Rt2"/>
+                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="top" secondItem="w5j-Gg-yU6" secondAttribute="bottom" constant="7" id="CPc-5M-N2s"/>
+                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="height" secondItem="Ctd-gB-ktm" secondAttribute="height" id="ItO-Ly-o9N"/>
+                            <constraint firstItem="4YQ-0R-VsW" firstAttribute="bottom" secondItem="Ctd-gB-ktm" secondAttribute="bottom" id="MLh-ax-wQt"/>
+                            <constraint firstItem="eHs-NS-QWx" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" constant="-16" id="NmO-iz-JVN"/>
+                            <constraint firstItem="wuW-G1-td0" firstAttribute="centerY" secondItem="4YQ-0R-VsW" secondAttribute="centerY" id="Pd7-dn-y8n"/>
+                            <constraint firstItem="wuW-G1-td0" firstAttribute="centerX" secondItem="4YQ-0R-VsW" secondAttribute="centerX" id="SU7-Q1-GZo"/>
+                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" constant="24" id="Sat-aw-tK0"/>
+                            <constraint firstItem="oAb-qG-Svg" firstAttribute="top" secondItem="1No-Ez-6Sn" secondAttribute="bottom" id="Utk-aa-Mfd"/>
+                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" constant="24" id="YV1-Wl-2ly"/>
+                            <constraint firstItem="eHs-NS-QWx" firstAttribute="height" secondItem="xXg-MS-kfZ" secondAttribute="height" multiplier="0.1" priority="999" id="Z4u-ES-CWy"/>
+                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="height" secondItem="xXg-MS-kfZ" secondAttribute="height" multiplier="0.07" id="ZjG-8Y-dzJ"/>
+                            <constraint firstItem="jBh-iO-6zb" firstAttribute="centerX" secondItem="Ctd-gB-ktm" secondAttribute="centerX" id="bCm-Uc-Ol4"/>
+                            <constraint firstItem="gub-uI-770" firstAttribute="top" secondItem="Ctd-gB-ktm" secondAttribute="bottom" constant="20" id="baP-qz-1lN"/>
+                            <constraint firstItem="wuW-G1-td0" firstAttribute="width" secondItem="4YQ-0R-VsW" secondAttribute="width" id="gNW-Xy-fMR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4YQ-0R-VsW" secondAttribute="trailing" constant="24" id="hYt-YS-AfL"/>
+                            <constraint firstItem="1No-Ez-6Sn" firstAttribute="leading" secondItem="eHs-NS-QWx" secondAttribute="trailing" constant="-1" id="iLE-7f-yjo"/>
+                            <constraint firstItem="Ctd-gB-ktm" firstAttribute="top" secondItem="jBh-iO-6zb" secondAttribute="bottom" constant="10" id="m4V-56-pmp"/>
+                            <constraint firstItem="wuW-G1-td0" firstAttribute="height" secondItem="4YQ-0R-VsW" secondAttribute="height" id="oFq-NO-6G6"/>
+                            <constraint firstItem="gub-uI-770" firstAttribute="leading" secondItem="xXg-MS-kfZ" secondAttribute="leadingMargin" constant="24" id="sAx-Yh-YzR"/>
+                            <constraint firstItem="eHs-NS-QWx" firstAttribute="height" secondItem="1No-Ez-6Sn" secondAttribute="height" id="u5w-pT-Pcf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1No-Ez-6Sn" secondAttribute="trailing" constant="-16" id="wUK-YV-3NO"/>
+                            <constraint firstItem="5V8-Qm-F5X" firstAttribute="top" secondItem="gub-uI-770" secondAttribute="bottom" constant="20" id="zh6-nn-XNb"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="naY-S5-cV7"/>
-                                <exclude reference="cuS-6r-vi6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -459,7 +454,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backBackgroundDrag" width="200" height="36"/>
         <image name="dogCamera" width="94" height="94"/>
         <image name="dragBackground" width="225" height="42"/>
         <image name="facebookButton" width="148" height="32"/>

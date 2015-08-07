@@ -28,7 +28,7 @@ class PetTextFields: UITextField {
 //        
 //    }
     
-    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5);
+    let padding = UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 5);
 
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
