@@ -21,8 +21,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        petsTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        petsTable.tableFooterView = UIView(frame: CGRectZero)
+        self.petsTable.addPullToRefresh({ [weak self] in
+            self!.loadPets()
+        })
         // Do any additional setup after loading the view.
     }
     
@@ -45,6 +48,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.pets = objects
                     println(self.pets)
                     self.petsTable.reloadData()
+                    self.petsTable.stopPullToRefresh()
                 }
             } else {
                 println("Error loading pets: \(error)")
@@ -77,12 +81,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.petProfile.file = pet.image
             cell.petProfile.loadInBackground(nil) { percent in
                 cell.progressView.progress = Float(percent)*0.01
-                 println("\(percent)%")
+                // println("\(percent)%")
             }
         }
         
         if let name = pet.name as String! {
-            println("Added Cell for: \(name)")
+            // println("Added Cell for: \(name)")
             cell.name.text = name
         }
         if let description = pet.attributes as String! {

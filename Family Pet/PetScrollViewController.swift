@@ -61,7 +61,9 @@ class PetScrollViewController: UIViewController, PetScrollView {
 
         NewPetViewController.delegate = self
         PetsViewController.delegate = self
+        
     }
+
     
     func addToScrollViewNewController(controller: UIViewController) {
         controller.willMoveToParentViewController(self)
