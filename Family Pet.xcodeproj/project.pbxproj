@@ -47,6 +47,7 @@
 		0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C51B74092700C31F33 /* AddPetViewController.swift */; };
 		0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C71B740B6A00C31F33 /* ListViewController.swift */; };
 		0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C91B74904A00C31F33 /* ImageUtil.swift */; };
+		0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		0ABC60C51B74092700C31F33 /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		0ABC60C71B740B6A00C31F33 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0ABC60C91B74904A00C31F33 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
+		0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
 				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
 				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
+				0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
 				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
+				0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */,
 				0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */,
 				0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */,
 				0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */,

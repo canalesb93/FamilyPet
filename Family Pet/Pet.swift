@@ -9,11 +9,19 @@
 import Foundation
 import Parse
 
+enum PetType: Int {
+    case Dog = 0
+    case Cat = 1
+    case Other = 2
+    
+}
+
 class Pet: PFObject, PFSubclassing {
     @NSManaged var image: PFFile?
     @NSManaged var user: PFUser
-    @NSManaged var petName: String
-    @NSManaged var petDescription: String?
+    @NSManaged var name: String
+    @NSManaged var type: PetType.RawValue
+    @NSManaged var attributes: String?
     
     //1
     class func parseClassName() -> String {
@@ -29,27 +37,27 @@ class Pet: PFObject, PFSubclassing {
         }
     }
     
-    init(image: PFFile?, user: PFUser, petName: String, petDescription: String?) {
+    init(image: PFFile?, user: PFUser, name: String, type: PetType, attributes: String?) {
         super.init()
-        
         self.image = image
         self.user = user
-        self.petName = petName
-        self.petDescription = petDescription
+        self.name = name
+        self.type = type.rawValue
+        self.attributes = attributes
     }
     
     override init() {
         super.init()
     }
-    
-    override class func query() -> PFQuery? {
-        //1
-        let query = PFQuery(className: Pet.parseClassName())
-        //2
-        query.includeKey("user")
-        //3
-        query.orderByDescending("createdAt")
-        return query
-    }
-    
+
+//    class func ownersQuery() -> PFQuery? {
+//        //1
+//        let query = PFQuery(className: Pet.parseClassName())
+//        //2
+//        query.includeKey("user")
+//        //3
+//        query.orderByDescending("createdAt")
+//        return query
+//    }
+
 }

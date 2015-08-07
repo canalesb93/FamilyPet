@@ -40,7 +40,8 @@ class PetScrollViewController: UIViewController, PetScrollView {
         super.viewDidLoad()
         
         initScrollView()
-        scrollView.keyboardDismissMode = .OnDrag
+        scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.Interactive
+        scrollView.panGestureRecognizer.delaysTouchesBegan = true
 
         // Do any additional setup after loading the view.
     }

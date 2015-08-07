@@ -21,6 +21,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var segmentedControl: ADVSegmentedControl!
     
     var imageAdded = false
+    var petType = PetType.Other
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,9 +120,11 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     func segmentValueChanged(sender: AnyObject?){
         println("Value changed")
         if segmentedControl.selectedIndex == 0 {
-            
+            petType = .Dog
         }else if segmentedControl.selectedIndex == 1{
-            
+            petType = .Cat
+        } else {
+            petType = .Other
         }
     }
     
@@ -140,7 +143,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         let ownerOne = PFUser.currentUser()!
         
         
-        let pet = Pet(image: newFile, user: PFUser.currentUser()!, petName: self.nameLabel.text, petDescription: self.descriptionLabel.text)
+        let pet = Pet(image: newFile, user: PFUser.currentUser()!, name: self.nameLabel.text, type: self.petType, attributes: self.descriptionLabel.text)
         let relation = pet.relationForKey("owners")
         relation.addObject(ownerOne)
         
