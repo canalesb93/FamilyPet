@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfe-iS-42i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="1203"/>
+            <point key="canvasLocation" x="770.5" y="1250.5"/>
         </scene>
         <!--Overview-->
         <scene sceneID="rx0-NB-0vf">
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4m-yb-saI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="842.5"/>
+            <point key="canvasLocation" x="1664.5" y="842.5"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="v3Y-uN-aE3">
@@ -476,7 +476,7 @@
         <!--Reminders View Controller-->
         <scene sceneID="ywu-Kl-BuF">
             <objects>
-                <viewController storyboardIdentifier="RemindersViewController" id="TYJ-3H-zjL" customClass="RemindersViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReminderListController" id="TYJ-3H-zjL" customClass="RemindersViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="luR-U2-Ua1"/>
                         <viewControllerLayoutGuide type="bottom" id="iur-Li-NgK"/>
@@ -492,7 +492,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8df-Bz-KGD" secondAttribute="centerX" id="QJC-nE-P7C"/>
                             <constraint firstAttribute="centerY" secondItem="8df-Bz-KGD" secondAttribute="centerY" id="TLG-om-gHu"/>
@@ -502,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-xp-clE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2122.5" y="842.5"/>
+            <point key="canvasLocation" x="2130.5" y="842.5"/>
         </scene>
         <!--Paging Menu Controller-->
         <scene sceneID="sf1-b6-Rwb">
@@ -522,6 +522,170 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YF2-nx-BML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2122.5" y="-3.5"/>
+        </scene>
+        <!--Add Reminder View Controller-->
+        <scene sceneID="G31-Ae-Niz">
+            <objects>
+                <viewController storyboardIdentifier="AddReminderController" id="kll-Ad-5Cs" customClass="AddReminderViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xCS-CX-M1S"/>
+                        <viewControllerLayoutGuide type="bottom" id="xn9-On-wAZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ObZ-Q5-Lci">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add a new reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="e17-CT-NbM">
+                                <rect key="frame" x="83" y="28" width="209" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btJ-jE-GkK">
+                                <rect key="frame" x="0.0" y="506" width="188.5" height="66.5"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.34509803919999998" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
+                                <state key="normal" title="cancel">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="kll-Ad-5Cs" eventType="touchUpInside" id="PvU-IM-cE4"/>
+                                    <action selector="cancel:" destination="nOK-dz-2EE" eventType="touchUpInside" id="fdA-c3-TXD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg8-2u-Mzy">
+                                <rect key="frame" x="187" y="506" width="188" height="66.5"/>
+                                <color key="backgroundColor" red="0.031372549020000001" green="0.64705882349999999" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
+                                <state key="normal" title="save">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="nOK-dz-2EE" eventType="touchUpInside" id="UbC-mp-151"/>
+                                    <action selector="save:" destination="kll-Ad-5Cs" eventType="touchUpInside" id="hMU-fz-Nln"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olj-kz-t2I" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="40" y="84" width="295" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WU5-4a-biO">
+                                <rect key="frame" x="48" y="57" width="116" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAX-i4-PEj">
+                                <rect key="frame" x="40" y="159" width="295" height="111"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="for pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grT-vf-fen">
+                                <rect key="frame" x="48" y="132" width="116" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-lY-47N">
+                                <rect key="frame" x="40" y="304" width="295" height="35"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="at date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpn-AL-cXm">
+                                <rect key="frame" x="48" y="277" width="116" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-IG-lbk" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="40" y="373" width="295" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx3-4y-80r">
+                                <rect key="frame" x="48" y="346" width="116" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-QS-FzD" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="40" y="442" width="295" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="queue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-Ll-tRG">
+                                <rect key="frame" x="48" y="415" width="60" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="how the task will be assigned to owners" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQQ-Kt-6Dv">
+                                <rect key="frame" x="108" y="421" width="210" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="frequencyControl" destination="Oxf-IG-lbk" id="XLi-P3-1j8"/>
+                        <outlet property="queueControl" destination="iWr-QS-FzD" id="bCQ-5I-A0i"/>
+                        <outlet property="typeControl" destination="olj-kz-t2I" id="Uac-7T-N0U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQs-OO-1M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2130.5" y="1634.5"/>
+        </scene>
+        <!--Reminder Scroll View Controller-->
+        <scene sceneID="47W-fC-jEo">
+            <objects>
+                <viewController storyboardIdentifier="ReminderScrollViewController" id="wMP-rT-mDm" customClass="ReminderScrollViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Kf-5Y-gf1"/>
+                        <viewControllerLayoutGuide type="bottom" id="0EI-wo-I58"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u8b-sk-U7k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX8-do-my6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqQ-lg-emw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="width" secondItem="oX8-do-my6" secondAttribute="width" priority="999" id="3nN-Uf-exa"/>
+                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="top" secondItem="oX8-do-my6" secondAttribute="top" id="5WF-zT-ive"/>
+                                    <constraint firstAttribute="trailing" secondItem="YqQ-lg-emw" secondAttribute="trailing" id="PQA-QS-DS8"/>
+                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="leading" secondItem="oX8-do-my6" secondAttribute="leading" id="XIg-yA-EHX"/>
+                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="height" secondItem="oX8-do-my6" secondAttribute="height" priority="999" id="fL7-U8-RE8"/>
+                                    <constraint firstAttribute="bottom" secondItem="YqQ-lg-emw" secondAttribute="bottom" id="zoh-Ma-gyC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oX8-do-my6" secondAttribute="trailing" id="Bm8-5U-9W2"/>
+                            <constraint firstItem="oX8-do-my6" firstAttribute="top" secondItem="u8b-sk-U7k" secondAttribute="top" id="fnC-Ux-gfq"/>
+                            <constraint firstItem="0EI-wo-I58" firstAttribute="top" secondItem="oX8-do-my6" secondAttribute="bottom" id="l3K-hm-rX6"/>
+                            <constraint firstItem="oX8-do-my6" firstAttribute="leading" secondItem="u8b-sk-U7k" secondAttribute="leading" id="xRB-eB-ag0"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="contentView" destination="YqQ-lg-emw" id="rJU-cw-slc"/>
+                        <outlet property="scrollView" destination="oX8-do-my6" id="glq-Oj-eU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KyC-NI-BL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2614.5" y="1250.5"/>
         </scene>
     </scenes>
     <resources>

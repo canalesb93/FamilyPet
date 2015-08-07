@@ -118,7 +118,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     }
     
     func segmentValueChanged(sender: AnyObject?){
-        println("Value changed")
         if segmentedControl.selectedIndex == 0 {
             petType = .Dog
         }else if segmentedControl.selectedIndex == 1{

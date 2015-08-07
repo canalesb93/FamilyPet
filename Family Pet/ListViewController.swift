@@ -46,7 +46,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             if error == nil {
                 if let objects = objects as? [Pet] {
                     self.pets = objects
-                    println(self.pets)
                     self.petsTable.reloadData()
                     self.petsTable.stopPullToRefresh()
                 }

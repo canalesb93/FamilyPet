@@ -1,22 +1,22 @@
 //
-//  PetScrollViewController.swift
+//  ReminderScrollViewController.swift
 //  Family Pet
 //
-//  Created by Ricardo Canales on 8/6/15.
+//  Created by Ricardo Canales on 8/7/15.
 //  Copyright (c) 2015 canalesb. All rights reserved.
 //
 
 import UIKit
 
 // Declare this protocol outside the class
-protocol PetScrollView {
+protocol ReminderScrollView {
     // This method allows a child to tell the parent view controller
     // to change to a different child view
     func moveToView(viewNum: Int)
 }
 
-class PetScrollViewController: UIViewController, PetScrollView {
-
+class ReminderScrollViewController: UIViewController, ReminderScrollView {
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     
@@ -24,14 +24,14 @@ class PetScrollViewController: UIViewController, PetScrollView {
     var contentViewConstraint: NSLayoutConstraint!
     
     var controllers = [UIViewController]()
-
+    
     var bottomConstraint: NSLayoutConstraint!
     var topConstraint: NSLayoutConstraint!
     var trailingConstraint: NSLayoutConstraint!
     var leadingConstraint: NSLayoutConstraint!
     var heightConstraint: NSLayoutConstraint!
     // A computed version of this reference
-
+    
     var computedContentViewConstraint: NSLayoutConstraint {
         return NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: .Height, multiplier: CGFloat(controllers.count + 1), constant: 0)
     }
@@ -40,9 +40,9 @@ class PetScrollViewController: UIViewController, PetScrollView {
         super.viewDidLoad()
         
         initScrollView()
-        scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
+        scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.Interactive
         scrollView.panGestureRecognizer.delaysTouchesBegan = true
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,17 +53,19 @@ class PetScrollViewController: UIViewController, PetScrollView {
         view.addConstraint(contentViewConstraint)
         
         // Adding all the controllers you want in the scrollView
-        let NewPetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("NewPetController") as! AddPetViewController
-        let PetsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PetsListController") as! ListViewController
-        
-        addToScrollViewNewController(NewPetViewController)
-        addToScrollViewNewController(PetsViewController)
 
-        NewPetViewController.delegate = self
-        PetsViewController.delegate = self
+        let NewReminderViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AddReminderController") as! AddReminderViewController
+        let ReminderListController = self.storyboard!.instantiateViewControllerWithIdentifier("ReminderListController") as! RemindersViewController
+
+        
+        addToScrollViewNewController(NewReminderViewController)
+        addToScrollViewNewController(ReminderListController)
+        
+        NewReminderViewController.delegate = self
+        ReminderListController.delegate = self
         
     }
-
+    
     
     func addToScrollViewNewController(controller: UIViewController) {
         controller.willMoveToParentViewController(self)
@@ -79,8 +81,8 @@ class PetScrollViewController: UIViewController, PetScrollView {
         leadingConstraint = NSLayoutConstraint(item: contentView, attribute: .Leading, relatedBy: .Equal, toItem: controller.view, attribute: .Leading, multiplier: 1.0, constant: 0)
         trailingConstraint = NSLayoutConstraint(item: contentView, attribute: .Trailing, relatedBy: .Equal, toItem: controller.view, attribute: .Trailing, multiplier: 1.0, constant: 0)
         
-//        topConstraint = NSLayoutConstraint(item: contentView, attribute: .Top, relatedBy: .Equal, toItem: controller.view, attribute: .Top, multiplier: 1.0, constant: 0)
-
+        //        topConstraint = NSLayoutConstraint(item: contentView, attribute: .Top, relatedBy: .Equal, toItem: controller.view, attribute: .Top, multiplier: 1.0, constant: 0)
+        
         
         // Setting all the constraints
         if controllers.isEmpty {
@@ -90,7 +92,7 @@ class PetScrollViewController: UIViewController, PetScrollView {
         else {
             bottomConstraint = NSLayoutConstraint(item: controllers.last!.view, attribute: .Top, relatedBy: .Equal, toItem: controller.view, attribute: .Bottom, multiplier: 1.0, constant: 0)
         }
-
+        
         
         // Setting the new width constraint of the contentView
         view.removeConstraint(contentViewConstraint)
@@ -109,12 +111,12 @@ class PetScrollViewController: UIViewController, PetScrollView {
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     /// Make sure you add this method to conform to the protocol
     func moveToView(viewNum: Int) {
@@ -122,5 +124,5 @@ class PetScrollViewController: UIViewController, PetScrollView {
         var yPos: CGFloat = self.view.frame.height * CGFloat(viewNum)
         self.scrollView.setContentOffset(CGPointMake(0,yPos), animated: true)
     }
-
+    
 }

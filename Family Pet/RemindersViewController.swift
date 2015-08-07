@@ -10,6 +10,8 @@ import UIKit
 
 class RemindersViewController: UIViewController {
 
+    var delegate: ReminderScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

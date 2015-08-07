@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4E6E591B755E66003AA7DA /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */; };
 		0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6531B73390400EF07C3 /* AppDelegate.swift */; };
 		0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6551B73390400EF07C3 /* LoginViewController.swift */; };
 		0AA0D6591B73390400EF07C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D6571B73390400EF07C3 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		0ABC60DC1B74C1F500C31F33 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60D81B74C1F500C31F33 /* PullToRefreshOption.swift */; };
 		0ABC60DD1B74C1F500C31F33 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60D91B74C1F500C31F33 /* PullToRefreshView.swift */; };
 		0ABC60DE1B74C1F500C31F33 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */; };
+		0ABC60E11B75547F00C31F33 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60E01B75547F00C31F33 /* Reminder.swift */; };
+		0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		0AA0D64E1B73390400EF07C3 /* Family Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Pet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0D6521B73390400EF07C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA0D6531B73390400EF07C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		0ABC60D81B74C1F500C31F33 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
 		0ABC60D91B74C1F500C31F33 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		0ABC60E01B75547F00C31F33 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				0AA0D6531B73390400EF07C3 /* AppDelegate.swift */,
-				0ABC60C41B7408E300C31F33 /* Pets */,
-				0AA0D6981B7343FA00EF07C3 /* Classes */,
+				0ABC60DF1B75534300C31F33 /* Models */,
+				0ABC60E21B755A9D00C31F33 /* ReminderViews */,
+				0ABC60C41B7408E300C31F33 /* PetViews */,
+				0AA0D6981B7343FA00EF07C3 /* Utilities */,
 				0AA0D6971B7343E500EF07C3 /* Views */,
 				0AA0D6B01B735E9800EF07C3 /* Other */,
 				0AA0D6571B73390400EF07C3 /* Main.storyboard */,
@@ -240,28 +248,24 @@
 		0AA0D6971B7343E500EF07C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 				0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */,
 				0AA0D6551B73390400EF07C3 /* LoginViewController.swift */,
 				0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */,
-				0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		0AA0D6981B7343FA00EF07C3 /* Classes */ = {
+		0AA0D6981B7343FA00EF07C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				0ABC60D61B74C1BF00C31F33 /* PullToRefresh */,
-				0ABC60C91B74904A00C31F33 /* ImageUtil.swift */,
-				0AA0D6B51B73784200EF07C3 /* Pet.swift */,
-				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
-				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
-				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
 				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
-				0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */,
+				0ABC60C91B74904A00C31F33 /* ImageUtil.swift */,
+				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
+				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
+				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
 			);
-			name = Classes;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		0AA0D69D1B734AF000EF07C3 /* PagingMenu */ = {
@@ -284,13 +288,15 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		0ABC60C41B7408E300C31F33 /* Pets */ = {
+		0ABC60C41B7408E300C31F33 /* PetViews */ = {
 			isa = PBXGroup;
 			children = (
+				0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */,
+				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 				0ABC60C71B740B6A00C31F33 /* ListViewController.swift */,
 				0ABC60C51B74092700C31F33 /* AddPetViewController.swift */,
 			);
-			name = Pets;
+			name = PetViews;
 			sourceTree = "<group>";
 		};
 		0ABC60D61B74C1BF00C31F33 /* PullToRefresh */ = {
@@ -302,6 +308,25 @@
 				0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */,
 			);
 			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		0ABC60DF1B75534300C31F33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0D6B51B73784200EF07C3 /* Pet.swift */,
+				0ABC60E01B75547F00C31F33 /* Reminder.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0ABC60E21B755A9D00C31F33 /* ReminderViews */ = {
+			isa = PBXGroup;
+			children = (
+				0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */,
+				0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */,
+				0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */,
+			);
+			name = ReminderViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +437,7 @@
 				0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */,
 				0AA0D6A31B734AFE00EF07C3 /* MenuView.swift in Sources */,
 				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
+				0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */,
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
 				0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */,
 				0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */,
@@ -420,7 +446,9 @@
 				0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */,
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
 				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
+				0A4E6E591B755E66003AA7DA /* AddReminderViewController.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
+				0ABC60E11B75547F00C31F33 /* Reminder.swift in Sources */,
 				0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */,
 				0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */,
 				0ABC60DD1B74C1F500C31F33 /* PullToRefreshView.swift in Sources */,
