@@ -171,7 +171,8 @@ extension AddPetViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         //Place the image in the imageview
         petProfile.contentMode = UIViewContentMode.ScaleToFill
-        petProfile.image = image
+        let croppedImage: UIImage = ImageUtil.cropToSquare(image: image)
+        petProfile.image = croppedImage
         imageAdded = true
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in

@@ -306,7 +306,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YQ-0R-VsW">
                                 <rect key="frame" x="241" y="27" width="94" height="94"/>
-                                <color key="backgroundColor" red="0.68025287828947367" green="1" blue="1" alpha="0.19" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="KMS-Wg-PNn"/>
                                     <constraint firstAttribute="width" secondItem="4YQ-0R-VsW" secondAttribute="height" multiplier="1:1" id="Xy9-nd-o67"/>

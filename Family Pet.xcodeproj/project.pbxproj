@@ -46,6 +46,7 @@
 		0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */; };
 		0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C51B74092700C31F33 /* AddPetViewController.swift */; };
 		0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C71B740B6A00C31F33 /* ListViewController.swift */; };
+		0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C91B74904A00C31F33 /* ImageUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionTextField.swift; sourceTree = "<group>"; };
 		0ABC60C51B74092700C31F33 /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		0ABC60C71B740B6A00C31F33 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0ABC60C91B74904A00C31F33 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		0AA0D6981B7343FA00EF07C3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0ABC60C91B74904A00C31F33 /* ImageUtil.swift */,
 				0AA0D6B51B73784200EF07C3 /* Pet.swift */,
 				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
 				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
@@ -388,6 +391,7 @@
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
 				0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */,
 				0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */,
+				0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */,
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
 				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
