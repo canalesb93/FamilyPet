@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A4E6E591B755E66003AA7DA /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */; };
+		0A4E6E5B1B758167003AA7DA /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */; };
 		0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6531B73390400EF07C3 /* AppDelegate.swift */; };
 		0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6551B73390400EF07C3 /* LoginViewController.swift */; };
 		0AA0D6591B73390400EF07C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D6571B73390400EF07C3 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		0AA0D64E1B73390400EF07C3 /* Family Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Pet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0D6521B73390400EF07C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA0D6531B73390400EF07C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		0AA0D6981B7343FA00EF07C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */,
 				0ABC60D61B74C1BF00C31F33 /* PullToRefresh */,
 				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
 				0ABC60C91B74904A00C31F33 /* ImageUtil.swift */,
@@ -439,6 +442,7 @@
 				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
 				0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */,
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
+				0A4E6E5B1B758167003AA7DA /* AKPickerView.swift in Sources */,
 				0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */,
 				0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */,
 				0ABC60DE1B74C1F500C31F33 /* UIScrollViewExtension.swift in Sources */,

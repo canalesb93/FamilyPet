@@ -577,9 +577,6 @@
                                 <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAX-i4-PEj">
-                                <rect key="frame" x="40" y="159" width="295" height="111"/>
-                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="for pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grT-vf-fen">
                                 <rect key="frame" x="48" y="132" width="116" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -587,50 +584,62 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-lY-47N">
-                                <rect key="frame" x="40" y="304" width="295" height="35"/>
+                                <rect key="frame" x="40" y="249" width="295" height="35"/>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="at date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpn-AL-cXm">
-                                <rect key="frame" x="48" y="277" width="116" height="24"/>
+                                <rect key="frame" x="48" y="222" width="116" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-IG-lbk" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
-                                <rect key="frame" x="40" y="373" width="295" height="35"/>
+                                <rect key="frame" x="40" y="318" width="295" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx3-4y-80r">
-                                <rect key="frame" x="48" y="346" width="116" height="24"/>
+                                <rect key="frame" x="48" y="291" width="116" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-QS-FzD" customClass="ADVSegmentedControl" customModule="Family_Pet" customModuleProvider="target">
-                                <rect key="frame" x="40" y="442" width="295" height="35"/>
+                                <rect key="frame" x="40" y="387" width="295" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="queue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-Ll-tRG">
-                                <rect key="frame" x="48" y="415" width="60" height="24"/>
+                                <rect key="frame" x="48" y="360" width="60" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="how the task will be assigned to owners" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQQ-Kt-6Dv">
-                                <rect key="frame" x="108" y="421" width="210" height="21"/>
+                                <rect key="frame" x="108" y="366" width="210" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3P-m3-zZ3" customClass="AKPickerView" customModule="Family_Pet" customModuleProvider="target">
+                                <rect key="frame" x="16" y="159" width="343" height="56"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewDepth">
+                                        <real key="value" value="1000"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="frequencyControl" destination="Oxf-IG-lbk" id="XLi-P3-1j8"/>
+                        <outlet property="petPickerView" destination="g3P-m3-zZ3" id="viA-e2-jdY"/>
                         <outlet property="queueControl" destination="iWr-QS-FzD" id="bCQ-5I-A0i"/>
                         <outlet property="typeControl" destination="olj-kz-t2I" id="Uac-7T-N0U"/>
                     </connections>
