@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate  {
 
     var reminderType: ReminderType = ReminderType.Feed
     var reminderFrequency: ReminderFrequency = ReminderFrequency.Once
     var reminderQueue: ReminderQueue = ReminderQueue.Daily
+    var pet: Pet?
     
     @IBOutlet var petPickerView: AKPickerView!
     
@@ -22,8 +24,9 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     
     var delegate: ReminderScrollView!
     
-    let titles = ["Tokyo", "Kanagawa", "Osaka", "Aichi", "Saitama", "Chiba", "Hyogo", "Hokkaido", "Fukuoka", "Shizuoka"]
-    
+//    var petNames = ["Tokyo", "Kanagawa", "Osaka", "Aichi", "Saitama", "Chiba", "Hyogo", "Hokkaido", "Fukuoka", "Shizuoka"]
+    var pets = [Pet]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,18 +49,35 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         self.petPickerView.dataSource = self
         
         self.petPickerView.font = UIFont(name: "HelveticaNeue-Light", size: 25)!
-        self.petPickerView.highlightedFont = UIFont(name: "HelveticaNeue", size: 25)!
+        self.petPickerView.highlightedFont = UIFont(name: "HelveticaNeue-Light", size: 25)!
         self.petPickerView.textColor = UIColor(netHex: 0x4C4C4F)
         self.petPickerView.highlightedTextColor = UIColor(netHex: 0x4C4C4F)
         self.petPickerView.pickerViewStyle = .Wheel
         self.petPickerView.maskDisabled = false
         self.petPickerView.reloadData()
+        loadData()
         
     }
     
     func loadData(){
+        let user = PFUser.currentUser()
+        let query = PFQuery(className: "Pet")
+        query.whereKey("owners", equalTo: user!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                if let objects = objects as? [Pet] {
+                    self.pets = objects
+                    self.pet = self.pets.first
+                    self.petPickerView.reloadData()
+                }
+            } else {
+                println("Error loading pets: \(error)")
+            }
+            
+        }
         
     }
+    
     
     func typeValueChanged(sender: AnyObject?){
         reminderType = ReminderType(rawValue: typeControl.selectedIndex)!
@@ -71,12 +91,17 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         reminderQueue = ReminderQueue(rawValue: queueControl.selectedIndex)!
     }
     
+    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+        pet = pets[item]
+    }
+
+    
     func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
-        return self.titles.count
+        return self.pets.count
     }
 
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return self.titles[item]
+        return self.pets[item].name
     }
     
     @IBAction func save(sender: AnyObject) {

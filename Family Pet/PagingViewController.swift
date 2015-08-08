@@ -68,7 +68,6 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     }
     
     func willMoveToMenuPage(page: Int) {
-        println("Will move to \(page)")
         if page == 1 {
             if currentPage == 0 && petScrollController != nil {
                 petScrollController!.moveToView(0)
@@ -80,7 +79,6 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     
     func didMoveToMenuPage(page: Int) {
         currentPage = page
-        // println("Did move to \(page)")
     }
 
     override func didReceiveMemoryWarning() {
