@@ -47,7 +47,7 @@ class AddReminderViewController: UIViewController {
     }
     
     func queueValueChanged(sender: AnyObject?){
-        reminderQueue = ReminderQueue(rawValue: typeControl.selectedIndex)!
+        reminderQueue = ReminderQueue(rawValue: queueControl.selectedIndex)!
     }
 
     @IBAction func save(sender: AnyObject) {
