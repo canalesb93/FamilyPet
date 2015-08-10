@@ -91,7 +91,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         nameLabel.resignFirstResponder()
         
         //Disable the send button until we are ready
-        navigationItem.rightBarButtonItem?.enabled = false
+        // .enabled = false
         
         loadingSpinner.startAnimating()
         

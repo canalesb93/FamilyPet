@@ -46,6 +46,9 @@
 		0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */; };
 		0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */; };
 		0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */; };
+		0AA2D9A71B75B24C00BBC855 /* RMActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9A61B75B24C00BBC855 /* RMActionController.m */; };
+		0AA2D9AA1B75B25600BBC855 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9A91B75B25600BBC855 /* RMDateSelectionViewController.m */; };
+		0AA2D9AC1B75D78F00BBC855 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9AB1B75D78F00BBC855 /* ReminderTableViewCell.swift */; };
 		0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C51B74092700C31F33 /* AddPetViewController.swift */; };
 		0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C71B740B6A00C31F33 /* ListViewController.swift */; };
 		0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C91B74904A00C31F33 /* ImageUtil.swift */; };
@@ -113,6 +116,11 @@
 		0AA0D6B51B73784200EF07C3 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTextFields.swift; sourceTree = "<group>"; };
 		0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDescriptionTextField.swift; sourceTree = "<group>"; };
+		0AA2D9A51B75B24C00BBC855 /* RMActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMActionController.h; sourceTree = "<group>"; };
+		0AA2D9A61B75B24C00BBC855 /* RMActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMActionController.m; sourceTree = "<group>"; };
+		0AA2D9A81B75B25600BBC855 /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
+		0AA2D9A91B75B25600BBC855 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
+		0AA2D9AB1B75D78F00BBC855 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		0ABC60C51B74092700C31F33 /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		0ABC60C71B740B6A00C31F33 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0ABC60C91B74904A00C31F33 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
@@ -260,6 +268,7 @@
 		0AA0D6981B7343FA00EF07C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0AA2D9A41B75B23D00BBC855 /* RMDatePicker */,
 				0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */,
 				0ABC60D61B74C1BF00C31F33 /* PullToRefresh */,
 				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
@@ -289,6 +298,17 @@
 				0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		0AA2D9A41B75B23D00BBC855 /* RMDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0AA2D9A81B75B25600BBC855 /* RMDateSelectionViewController.h */,
+				0AA2D9A91B75B25600BBC855 /* RMDateSelectionViewController.m */,
+				0AA2D9A51B75B24C00BBC855 /* RMActionController.h */,
+				0AA2D9A61B75B24C00BBC855 /* RMActionController.m */,
+			);
+			name = RMDatePicker;
 			sourceTree = "<group>";
 		};
 		0ABC60C41B7408E300C31F33 /* PetViews */ = {
@@ -328,6 +348,7 @@
 				0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */,
 				0A4E6E581B755E66003AA7DA /* AddReminderViewController.swift */,
 				0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */,
+				0AA2D9AB1B75D78F00BBC855 /* ReminderTableViewCell.swift */,
 			);
 			name = ReminderViews;
 			sourceTree = "<group>";
@@ -385,6 +406,7 @@
 					};
 					0AA0D6621B73390500EF07C3 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 84VG9Y72DN;
 						TestTargetID = 0AA0D64D1B73390400EF07C3;
 					};
 				};
@@ -438,6 +460,7 @@
 				0AA0D69A1B73483700EF07C3 /* BubbleTransition.swift in Sources */,
 				0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */,
 				0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */,
+				0AA2D9A71B75B24C00BBC855 /* RMActionController.m in Sources */,
 				0AA0D6A31B734AFE00EF07C3 /* MenuView.swift in Sources */,
 				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
 				0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */,
@@ -452,9 +475,11 @@
 				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
 				0A4E6E591B755E66003AA7DA /* AddReminderViewController.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
+				0AA2D9AC1B75D78F00BBC855 /* ReminderTableViewCell.swift in Sources */,
 				0ABC60E11B75547F00C31F33 /* Reminder.swift in Sources */,
 				0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */,
 				0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */,
+				0AA2D9AA1B75B25600BBC855 /* RMDateSelectionViewController.m in Sources */,
 				0ABC60DD1B74C1F500C31F33 /* PullToRefreshView.swift in Sources */,
 				0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */,
 				0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */,
@@ -519,6 +544,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -541,6 +567,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "af7d9ed1-8fd6-42ff-87b8-dbe074210139";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -563,6 +590,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -578,6 +606,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "af7d9ed1-8fd6-42ff-87b8-dbe074210139";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -587,7 +616,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -595,6 +624,7 @@
 				INFOPLIST_FILE = "Family Pet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "af7d9ed1-8fd6-42ff-87b8-dbe074210139";
 				SWIFT_OBJC_BRIDGING_HEADER = "Familiy-Pet-Bridging-Header.h";
 			};
 			name = Debug;
@@ -603,7 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -611,6 +641,7 @@
 				INFOPLIST_FILE = "Family Pet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "af7d9ed1-8fd6-42ff-87b8-dbe074210139";
 				SWIFT_OBJC_BRIDGING_HEADER = "Familiy-Pet-Bridging-Header.h";
 			};
 			name = Release;
@@ -619,6 +650,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -630,6 +663,7 @@
 				INFOPLIST_FILE = "Family PetTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Family Pet.app/Family Pet";
 			};
 			name = Debug;
@@ -638,6 +672,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -645,6 +681,7 @@
 				INFOPLIST_FILE = "Family PetTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Family Pet.app/Family Pet";
 			};
 			name = Release;

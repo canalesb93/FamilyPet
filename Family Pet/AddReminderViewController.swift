@@ -15,16 +15,18 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     var reminderFrequency: ReminderFrequency = ReminderFrequency.Once
     var reminderQueue: ReminderQueue = ReminderQueue.Daily
     var pet: Pet?
+    var reminderDate: NSDate?
     
     @IBOutlet var petPickerView: AKPickerView!
     
     @IBOutlet var typeControl: ADVSegmentedControl!
     @IBOutlet var frequencyControl: ADVSegmentedControl!
     @IBOutlet var queueControl: ADVSegmentedControl!
+    var pickerController: RMDateSelectionViewController?
     
+    @IBOutlet var dateButton: UIButton!
     var delegate: ReminderScrollView!
     
-//    var petNames = ["Tokyo", "Kanagawa", "Osaka", "Aichi", "Saitama", "Chiba", "Hyogo", "Hokkaido", "Fukuoka", "Shizuoka"]
     var pets = [Pet]()
 
     override func viewDidLoad() {
@@ -57,13 +59,46 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         self.petPickerView.reloadData()
         loadData()
         
+        
+        let selectAction = RMAction(title: "Select", style: RMActionStyle.Done) { (controller) -> Void in
+            if let dateController = controller.contentView as? UIDatePicker {
+                println(dateController.date)
+                self.reminderDate = dateController.date
+
+//                let formatter = NSDateFormatter()
+//                formatter.dateStyle = NSDateFormatterStyle.
+//                formatter.timeStyle = .MediumStyle
+//                
+//                let dateString = formatter.stringFromDate(dateController.date)
+                
+                let dayTimePeriodFormatter = NSDateFormatter()
+                dayTimePeriodFormatter.dateFormat = "EEEE, MMM d, h:mm a"
+                
+                let dateString = dayTimePeriodFormatter.stringFromDate(self.reminderDate!)
+                
+                self.dateButton.setTitle(dateString, forState: .Normal)
+            }
+        }
+        let cancelAction = RMAction(title: "Cancel", style: RMActionStyle.Cancel) { (controller) -> Void in
+            
+        }
+        pickerController = RMDateSelectionViewController(style: RMActionControllerStyle.White, selectAction: selectAction, andCancelAction: cancelAction)
+        pickerController!.title = "Select Date"
+        pickerController!.message = "Select the date for your reminder."
+
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+
     }
     
     func loadData(){
-        let user = PFUser.currentUser()
+        let current_user = PFUser.currentUser()
         let query = PFQuery(className: "Pet")
-        query.whereKey("owners", equalTo: user!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+        if let user = current_user{
+            query.whereKey("owners", equalTo: user)
+            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 if let objects = objects as? [Pet] {
                     self.pets = objects
@@ -74,10 +109,14 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
                 println("Error loading pets: \(error)")
             }
             
+            }
         }
         
     }
     
+    @IBAction func setDate(sender: AnyObject) {
+        presentViewController(pickerController!, animated: true, completion: nil)
+    }
     
     func typeValueChanged(sender: AnyObject?){
         reminderType = ReminderType(rawValue: typeControl.selectedIndex)!
@@ -85,6 +124,17 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     
     func frequencyValueChanged(sender: AnyObject?){
         reminderFrequency = ReminderFrequency(rawValue: frequencyControl.selectedIndex)!
+        if frequencyControl.selectedIndex == ReminderFrequency.Daily.rawValue {
+            pickerController!.title = "Select Time"
+            pickerController!.message = "Select the time for your reminder."
+            pickerController?.datePicker.datePickerMode = UIDatePickerMode.Time
+        } else if frequencyControl.selectedIndex == ReminderFrequency.Weekly.rawValue {
+            pickerController!.title = "Select Date"
+            pickerController!.message = "Select the weekday and time for your reminder. Ignore the month."
+            pickerController?.datePicker.datePickerMode = UIDatePickerMode.DateAndTime
+        }else {
+            pickerController?.datePicker.datePickerMode = UIDatePickerMode.DateAndTime
+        }
     }
     
     func queueValueChanged(sender: AnyObject?){
@@ -105,10 +155,49 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     }
     
     @IBAction func save(sender: AnyObject) {
+        getMembersAndSave()
     }
     @IBAction func cancel(sender: AnyObject) {
         self.delegate!.moveToView(0)
     }
+    
+    func getMembersAndSave(){
+        let relation = pet!.relationForKey("owners")
+        let query = relation.query()
+        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                if let objects = objects as? [PFUser] {
+                    self.saveReminder(objects)
+                }
+            } else {
+                println("Error loading pets: \(error)")
+            }
+            
+        }
+    }
+    
+    func saveReminder(members: [PFUser]) {
+        
+        let reminder = Reminder(user: PFUser.currentUser()!, pet: pet!, type: reminderType, date: reminderDate!, frequency: reminderFrequency, queue: reminderQueue)
+        let reminderRelation = reminder.relationForKey("members")
+        for member in members {
+            reminderRelation.addObject(member)
+        }
+        reminder.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            if succeeded {
+                // self.clearData()
+                self.delegate!.moveToView(0)
+            } else {
+                //4
+                if let errorMessage = error?.userInfo?["error"] as? String {
+                    println("Error: \(error)")
+                    //                    self.showErrorView(error!)
+                }
+            }
+        }
+        
+    }
+
     
     
     override func didReceiveMemoryWarning() {
@@ -126,5 +215,6 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }

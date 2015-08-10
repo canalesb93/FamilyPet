@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+var pets = [Pet]()
+
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var delegate: PetScrollView!
@@ -36,29 +38,31 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadPets()
     }
     
-    var pets = [Pet]()
     
     func loadPets(){
         let user = PFUser.currentUser()
         let query = PFQuery(className: "Pet")
-        query.whereKey("owners", equalTo: user!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if error == nil {
-                if let objects = objects as? [Pet] {
-                    self.pets = objects
-                    self.petsTable.reloadData()
-                    self.petsTable.stopPullToRefresh()
+        if let user = user {
+            query.whereKey("owners", equalTo: user)
+            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+                if error == nil {
+                    if let objects = objects as? [Pet] {
+                        pets = objects
+                        self.petsTable.reloadData()
+                        self.petsTable.stopPullToRefresh()
+                        
+                    }
+                } else {
+                    println("Error loading pets: \(error)")
                 }
-            } else {
-                println("Error loading pets: \(error)")
+                
             }
-            
         }
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pets.count
+        return pets.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

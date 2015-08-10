@@ -61,6 +61,32 @@ class Reminder: PFObject, PFSubclassing {
         self.queue = queue.rawValue
     }
     
+    func getName() -> NSMutableAttributedString {
+        var name: String = "Missing Name"
+        var petName = pet.name
+        
+        switch type {
+            case ReminderType.Feed.rawValue:
+                name = "Feed \(petName)"
+            case ReminderType.Play.rawValue:
+                name = "Play with \(petName)"
+            case ReminderType.Walk.rawValue:
+                name = "Walk \(petName)"
+            case ReminderType.Vet.rawValue:
+                name = "Vet visit for \(petName)"
+            case ReminderType.Meds.rawValue:
+                name = "Medicine to \(petName)"
+            default:
+                name = "Missing Name"
+        }
+        
+        let petNameRange = (name as NSString).rangeOfString(petName)
+        let attributedString = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(21)])
+        
+        attributedString.setAttributes([NSFontAttributeName : UIFont.boldSystemFontOfSize(21), NSForegroundColorAttributeName : UIColor(netHex: 0x4C4C4F)], range: petNameRange)
+        return attributedString
+    }
+    
     func getIcon() -> UIImage {
         var icon: UIImage
         switch type {
