@@ -150,6 +150,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
             if succeeded {
                 //3
                 self.clearData()
+                NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
                 self.delegate!.moveToView(0)
                 
             } else {

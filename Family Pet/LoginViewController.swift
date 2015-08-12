@@ -21,7 +21,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         // Set Title w/ spacing
         let attributedString = NSMutableAttributedString(string: "family pet")
         attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5), range: NSRange(location: 0, length: 9))
@@ -47,15 +46,45 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func doConnect(sender: AnyObject) {
         PFFacebookUtils.logInInBackgroundWithReadPermissions(facebook_permissions) {
             (user: PFUser?, error: NSError?) -> Void in
+            
             if let user = user {
                 if user.isNew {
                     println("User signed up and logged in through Facebook!")
+                    // Create request for user's Facebook data
+                    let request = FBSDKGraphRequest(graphPath:"me?fields=email,first_name,last_name", parameters:nil)
+                    
+                    // Send request to Facebook
+                    request.startWithCompletionHandler { (connection, result, error) in
+                        if error != nil {
+                            // Some error checking here
+                        }
+                        else if let userData = result as? [String:AnyObject] {
+                            println("Saving user data")
+                            
+                            // Access user data
+                            let first_name = userData["first_name"] as? String
+                            let last_name = userData["last_name"] as? String
+                            let email = userData["email"] as? String
+                            let uid = userData["id"] as? String
+                            user["uid"] = uid
+                            user["first_name"] = first_name
+                            user["last_name"] = last_name
+                            user["email"] = email
+                            user.saveInBackgroundWithBlock({ (success, error) -> Void in
+                                if success {
+                                    self.associateDeviceWithUser()
+                                    self.performSegueWithIdentifier(self.initial_segue_identifier, sender: nil)
+                                }
+                            })
+                        }
+                    }
                 } else {
                     println("User logged in through Facebook!")
                     self.intent = true
+                    self.associateDeviceWithUser()
+                    self.performSegueWithIdentifier(self.initial_segue_identifier, sender: nil)
                 }
-                self.associateDeviceWithUser()
-                self.performSegueWithIdentifier(self.initial_segue_identifier, sender: nil)
+
 
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
@@ -78,6 +107,12 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         installation["user"] = PFUser.currentUser()
         installation.saveInBackground()
         println("Added user to device installation")
+    }
+    
+    func getUserInfo(){
+        
+
+        
     }
     
     // MARK: UIViewControllerTransitioningDelegate

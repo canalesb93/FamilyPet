@@ -21,6 +21,7 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //CONFIGURING NAVBAR
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         // let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(30)] as Dictionary!

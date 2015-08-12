@@ -9,56 +9,29 @@
 import UIKit
 import Parse
 
-var pets = [Pet]()
-
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var delegate: PetScrollView!
     
     @IBOutlet var petsTable: UITableView!
     
-    @IBAction func reload(sender: AnyObject) {
-        loadPets()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: globalNotificationKey, object: nil)
         
         petsTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         petsTable.tableFooterView = UIView(frame: CGRectZero)
-        self.petsTable.addPullToRefresh({ [weak self] in
-            self!.loadPets()
-        })
+
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Reload the wall
-        loadPets()
     }
     
-    
-    func loadPets(){
-        let user = PFUser.currentUser()
-        let query = PFQuery(className: "Pet")
-        if let user = user {
-            query.whereKey("owners", equalTo: user)
-            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-                if error == nil {
-                    if let objects = objects as? [Pet] {
-                        pets = objects
-                        self.petsTable.reloadData()
-                        self.petsTable.stopPullToRefresh()
-                        
-                    }
-                } else {
-                    println("Error loading pets: \(error)")
-                }
-                
-            }
-        }
-        
+    func reloadData(){
+        self.petsTable.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

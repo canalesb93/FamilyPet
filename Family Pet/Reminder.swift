@@ -34,8 +34,11 @@ class Reminder: PFObject, PFSubclassing {
     @NSManaged var pet: Pet
     @NSManaged var type: ReminderType.RawValue
     @NSManaged var date: NSDate
+    @NSManaged var weekday: Int
     @NSManaged var frequency: ReminderFrequency.RawValue
     @NSManaged var queue: ReminderQueue.RawValue
+    @NSManaged var completed: Bool
+    
     
     //1
     class func parseClassName() -> String {
@@ -51,14 +54,16 @@ class Reminder: PFObject, PFSubclassing {
         }
     }
     
-    init(user: PFUser, pet: Pet, type: ReminderType, date: NSDate, frequency: ReminderFrequency, queue: ReminderQueue) {
+    init(user: PFUser, pet: Pet, type: ReminderType, date: NSDate, weekday: Int, frequency: ReminderFrequency, queue: ReminderQueue) {
         super.init()
         self.user = user
         self.pet = pet
         self.type = type.rawValue
         self.date = date
+        self.weekday = weekday
         self.frequency = frequency.rawValue
         self.queue = queue.rawValue
+        self.completed = false
     }
     
     func getName() -> NSMutableAttributedString {
@@ -92,15 +97,37 @@ class Reminder: PFObject, PFSubclassing {
         switch type {
             case ReminderType.Feed.rawValue:
                 icon = UIImage(named: "feedIcon")!
+            case ReminderType.Play.rawValue:
+                icon = UIImage(named: "ballIcon")!
+            case ReminderType.Walk.rawValue:
+                icon = UIImage(named: "walkIcon")!
+            case ReminderType.Vet.rawValue:
+                icon = UIImage(named: "vetIcon")!
+            case ReminderType.Meds.rawValue:
+                icon = UIImage(named: "medicineIcon")!
             default:
                 icon = UIImage(named: "feedIcon")!
         }
         return icon
     }
     
+    func getTime() -> String {
+        return date.toString(format: .Custom("h:mm a"))
+    }
+    
+    func getStatusIcon() -> UIImage {
+        if completed {
+            return UIImage(named: "checkedIcon")!
+        } else {
+            return UIImage(named: "uncheckedIcon")!
+        }
+    }
+    
     override init() {
         super.init()
     }
+    
+    
     
     //    class func ownersQuery() -> PFQuery? {
     //        //1
