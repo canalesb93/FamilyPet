@@ -35,6 +35,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     override func viewDidAppear(animated: Bool) {
         if let user = PFUser.currentUser() {
             if user.isAuthenticated() && intent == false {
+                
+                associateDeviceWithUser()
+                
                 self.performSegueWithIdentifier(self.initial_segue_identifier, sender: facebookButton)
             }
         }
@@ -51,6 +54,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                     println("User logged in through Facebook!")
                     self.intent = true
                 }
+                self.associateDeviceWithUser()
                 self.performSegueWithIdentifier(self.initial_segue_identifier, sender: nil)
 
             } else {
@@ -66,6 +70,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             controller.transitioningDelegate = self
             controller.modalPresentationStyle = .Custom
         }
+    }
+    
+    func associateDeviceWithUser(){
+        // Associate the device with a user
+        let installation = PFInstallation.currentInstallation()
+        installation["user"] = PFUser.currentUser()
+        installation.saveInBackground()
+        println("Added user to device installation")
     }
     
     // MARK: UIViewControllerTransitioningDelegate

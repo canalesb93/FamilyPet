@@ -189,8 +189,8 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
                 self.delegate!.moveToView(0)
             } else {
                 //4
-                if let errorMessage = error?.userInfo?["error"] as? String {
-                    println("Error: \(error)")
+                if error != nil {
+                    println("Error: \(error?.description)")
                     //                    self.showErrorView(error!)
                 }
             }
