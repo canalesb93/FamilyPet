@@ -61,6 +61,7 @@
 		0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */; };
 		0ADA9F9A1B7BBD02006B5CD1 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F991B7BBD02006B5CD1 /* FeedTableViewCell.swift */; };
 		0ADA9F9C1B7BE2A7006B5CD1 /* AFDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */; };
+		0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		0ABC60E31B755BEC00C31F33 /* ReminderScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderScrollViewController.swift; sourceTree = "<group>"; };
 		0ADA9F991B7BBD02006B5CD1 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFDateExtension.swift; sourceTree = "<group>"; };
+		0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			children = (
 				0AA0D6551B73390400EF07C3 /* LoginViewController.swift */,
 				0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */,
+				0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				0AA0D6B41B73741A00EF07C3 /* ADVSegmentedControl.swift in Sources */,
 				0ABC60DE1B74C1F500C31F33 /* UIScrollViewExtension.swift in Sources */,
 				0ABC60DC1B74C1F500C31F33 /* PullToRefreshOption.swift in Sources */,
+				0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */,
 				0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */,
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
 				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
