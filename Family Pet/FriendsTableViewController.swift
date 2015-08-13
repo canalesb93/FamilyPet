@@ -9,14 +9,17 @@
 import UIKit
 import Parse
 
+var friendsSelected = [PFUser]()
+
 class FriendsTableViewController: UITableViewController {
 
     var friends = [PFUser]()
+    var selected = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.title = "Friends"
+        self.navigationItem.title = "Friends"
         
         let request = FBSDKGraphRequest(graphPath:"me?fields=friends", parameters:nil)
 
@@ -33,7 +36,8 @@ class FriendsTableViewController: UITableViewController {
                     let valueDict : NSDictionary = data[i] as! NSDictionary
                     let id = valueDict.objectForKey("id") as! String
                     friendIds.append(id)
-                    println("the id value is \(id)")
+                    self.selected.append(false)
+                    // println("the id value is \(id)")
                 }
                 
                 var friendQuery = PFUser.query()
@@ -58,9 +62,24 @@ class FriendsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        friendsSelected.removeAll(keepCapacity: false)
+        for var i = 0; i < selected.count; i++ {
+            if selected[i] {
+                friendsSelected.append(friends[i])
+
+            }
+        }
+        println("\(friendsSelected.count) friends selected.")
+    }
+    
     func getProfPic(fid: String) -> UIImage? {
         if (fid != "") {
-            var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=large" //type=normal
+            var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=normal" //type=large
             var imgURL = NSURL(string: imgURLString)
             var imageData = NSData(contentsOfURL: imgURL!)
             var image = UIImage(data: imageData!)
@@ -102,6 +121,18 @@ class FriendsTableViewController: UITableViewController {
 
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        selected[indexPath.row] = true
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = UITableViewCellAccessoryType.None
+        selected[indexPath.row] = false
     }
 
     /*

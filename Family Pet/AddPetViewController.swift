@@ -20,6 +20,8 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var descriptionLabel: UITextField!
     @IBOutlet var segmentedControl: ADVSegmentedControl!
     
+    @IBOutlet var ownersButton: UIButton!
+    
     var imageAdded = false
     var petType = PetType.Other
     
@@ -48,9 +50,22 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         segmentedControl.selectedIndex = 0
         segmentedControl.addTarget(self, action: "segmentValueChanged:", forControlEvents: .ValueChanged)
         
+        ownersButton.layer.borderWidth = 3
+        ownersButton.layer.borderColor = UIColor(netHex: 0x74747B).CGColor
+        
         //Looks for single or multiple taps.
 //        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 //        view.addGestureRecognizer(tap)
+        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if friendsSelected.count == 1 {
+            ownersButton.setTitle("1 additional owner", forState: .Normal)
+        } else if friendsSelected.count > 0 {
+            ownersButton.setTitle("\(friendsSelected.count) additional owners", forState: .Normal)
+        }
     }
     
     func clearData(){
@@ -59,6 +74,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         segmentedControl.selectedIndex = 0
         petProfile.image = UIImage(named: "dogCamera")
         loadingSpinner.stopAnimating()
+        friendsSelected.removeAll(keepCapacity: false)
         
     }
     
@@ -139,12 +155,15 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         }
         
         // let’s say we have a few objects representing Author objects
-        let ownerOne = PFUser.currentUser()!
+        let owner = PFUser.currentUser()!
         
         
         let pet = Pet(image: newFile, user: PFUser.currentUser()!, name: self.nameLabel.text, type: self.petType, attributes: self.descriptionLabel.text)
         let relation = pet.relationForKey("owners")
-        relation.addObject(ownerOne)
+        relation.addObject(owner)
+        for var i = 0; i < friendsSelected.count; i++ {
+            relation.addObject(friendsSelected[i])
+        }
         
         pet.saveInBackgroundWithBlock{ succeeded, error in
             if succeeded {
@@ -164,8 +183,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         
         
     }
-    
-    
     
 }
 

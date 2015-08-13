@@ -80,6 +80,9 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         pickerController?.datePicker.datePickerMode = UIDatePickerMode.DateAndTime
         pickerController?.datePicker.minimumDate = NSDate()
         
+        dateButton.layer.borderWidth = 3
+        dateButton.layer.borderColor = UIColor(netHex: 0x74747B).CGColor
+        
     }
     
     func setDateButtonTitle(date: NSDate){
