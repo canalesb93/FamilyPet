@@ -46,6 +46,16 @@ class Pet: PFObject, PFSubclassing {
         self.attributes = attributes
     }
     
+    func getType() -> String{
+        if type == 0 {
+            return "Dog"
+        } else if type == 1 {
+            return "Cat"
+        } else {
+            return "Other"
+        }
+    }
+    
     override init() {
         super.init()
     }

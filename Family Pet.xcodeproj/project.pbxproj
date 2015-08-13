@@ -45,7 +45,6 @@
 		0AA0D6B61B73784200EF07C3 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B51B73784200EF07C3 /* Pet.swift */; };
 		0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */; };
 		0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */; };
-		0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */; };
 		0AA2D9A71B75B24C00BBC855 /* RMActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9A61B75B24C00BBC855 /* RMActionController.m */; };
 		0AA2D9AA1B75B25600BBC855 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9A91B75B25600BBC855 /* RMDateSelectionViewController.m */; };
 		0AA2D9AC1B75D78F00BBC855 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2D9AB1B75D78F00BBC855 /* ReminderTableViewCell.swift */; };
@@ -63,6 +62,7 @@
 		0ADA9F9C1B7BE2A7006B5CD1 /* AFDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */; };
 		0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */; };
 		0ADA9FB11B7C383B006B5CD1 /* SwiftOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */; };
+		0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +115,6 @@
 		0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
-		0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetScrollViewController.swift; sourceTree = "<group>"; };
 		0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADVSegmentedControl.swift; sourceTree = "<group>"; };
 		0AA0D6B51B73784200EF07C3 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTextFields.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFDateExtension.swift; sourceTree = "<group>"; };
 		0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOverlays.swift; sourceTree = "<group>"; };
+		0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,9 +326,9 @@
 			isa = PBXGroup;
 			children = (
 				0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */,
-				0AA0D6AE1B735E0C00EF07C3 /* PetScrollViewController.swift */,
 				0ABC60C71B740B6A00C31F33 /* ListViewController.swift */,
 				0ABC60C51B74092700C31F33 /* AddPetViewController.swift */,
+				0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */,
 			);
 			name = PetViews;
 			sourceTree = "<group>";
@@ -494,7 +494,6 @@
 				0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */,
 				0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */,
 				0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */,
-				0AA0D6C21B74066100EF07C3 /* PetScrollViewController.swift in Sources */,
 				0A4E6E591B755E66003AA7DA /* AddReminderViewController.swift in Sources */,
 				0ADA9F9C1B7BE2A7006B5CD1 /* AFDateExtension.swift in Sources */,
 				0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */,
@@ -508,6 +507,7 @@
 				0ADA9F9A1B7BBD02006B5CD1 /* FeedTableViewCell.swift in Sources */,
 				0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */,
 				0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */,
+				0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */,
 				0AA0D6B61B73784200EF07C3 /* Pet.swift in Sources */,
 				0AA0D69C1B7349E600EF07C3 /* UIColorExtension.swift in Sources */,
 				0AA0D6A21B734AFE00EF07C3 /* MenuItemView.swift in Sources */,

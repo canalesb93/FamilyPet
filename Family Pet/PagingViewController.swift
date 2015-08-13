@@ -14,8 +14,7 @@ var pagingBarHeight: CGFloat?
 
 class PagingViewController: UIViewController, PagingMenuControllerDelegate {
 
-    var petScrollController: PetScrollViewController?
-    var reminderScrollController: ReminderScrollViewController?
+    var petListController: ListViewController?
     var currentPage = 1
     
     override func viewDidLoad() {
@@ -36,13 +35,11 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         pagingBarHeight = CGFloat(35.0)
         
         // INITIATE PAGING MENU
-        petScrollController = self.storyboard?.instantiateViewControllerWithIdentifier("PetScrollViewController") as? PetScrollViewController
-        petScrollController!.title = "pets"
+        petListController = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as? ListViewController
+        petListController!.title = "pets"
         let feedController = self.storyboard?.instantiateViewControllerWithIdentifier("FeedViewController") as! FeedViewController
         feedController.title = "feed"
-        reminderScrollController = self.storyboard?.instantiateViewControllerWithIdentifier("ReminderScrollViewController") as? ReminderScrollViewController
-        reminderScrollController!.title = "reminders"
-        let viewControllers = [petScrollController!, feedController, reminderScrollController!]
+        let viewControllers = [feedController, petListController!]
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
         
@@ -59,9 +56,9 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
 
         options.menuItemMode = PagingMenuOptions.MenuItemMode.None
         options.menuHeight = pagingBarHeight!
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: false, scrollingMode: .PagingEnabled)
+        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: true, scrollingMode: .PagingEnabled)
         
-        options.defaultPage = currentPage
+        options.defaultPage = 0
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
         pagingMenuController.delegate = self
 
@@ -69,13 +66,7 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     }
     
     func willMoveToMenuPage(page: Int) {
-        if page == 1 {
-            if currentPage == 0 && petScrollController != nil {
-                petScrollController!.moveToView(0)
-            } else if currentPage == 2 && reminderScrollController != nil {
-                reminderScrollController!.moveToView(0)
-            }
-        }
+
     }
     
     func didMoveToMenuPage(page: Int) {

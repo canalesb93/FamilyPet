@@ -79,54 +79,6 @@
             </objects>
             <point key="canvasLocation" x="682.5" y="412.5"/>
         </scene>
-        <!--Pet Scroll View Controller-->
-        <scene sceneID="KG3-zv-Art">
-            <objects>
-                <viewController storyboardIdentifier="PetScrollViewController" id="IUq-Bo-cto" customClass="PetScrollViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="r0g-FA-PVo"/>
-                        <viewControllerLayoutGuide type="bottom" id="WE0-ju-Q8d"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NW6-uW-X7s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhV-e4-iot">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-5r-LQg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ijW-5r-LQg" firstAttribute="width" secondItem="AhV-e4-iot" secondAttribute="width" priority="999" id="CWG-On-TkG"/>
-                                    <constraint firstItem="ijW-5r-LQg" firstAttribute="leading" secondItem="AhV-e4-iot" secondAttribute="leading" id="DCP-Zx-aTJ"/>
-                                    <constraint firstItem="ijW-5r-LQg" firstAttribute="height" secondItem="AhV-e4-iot" secondAttribute="height" priority="999" id="HQK-PM-BXQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="ijW-5r-LQg" secondAttribute="trailing" id="LCy-gI-npC"/>
-                                    <constraint firstItem="ijW-5r-LQg" firstAttribute="top" secondItem="AhV-e4-iot" secondAttribute="top" id="XJJ-lj-uDJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="ijW-5r-LQg" secondAttribute="bottom" id="sGz-Ps-nC9"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="AhV-e4-iot" firstAttribute="top" secondItem="NW6-uW-X7s" secondAttribute="top" id="G0u-WL-6hq"/>
-                            <constraint firstItem="AhV-e4-iot" firstAttribute="leading" secondItem="NW6-uW-X7s" secondAttribute="leading" id="Sfd-HK-MGf"/>
-                            <constraint firstAttribute="trailing" secondItem="AhV-e4-iot" secondAttribute="trailing" id="cQp-RQ-Q7G"/>
-                            <constraint firstItem="WE0-ju-Q8d" firstAttribute="top" secondItem="AhV-e4-iot" secondAttribute="bottom" id="mvY-Io-BgU"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="contentView" destination="ijW-5r-LQg" id="ctd-ZS-RmT"/>
-                        <outlet property="scrollView" destination="AhV-e4-iot" id="dQj-iE-yjE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfe-iS-42i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="770.5" y="1250.5"/>
-        </scene>
         <!--Overview-->
         <scene sceneID="rx0-NB-0vf">
             <objects>
@@ -267,12 +219,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4m-yb-saI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664.5" y="842.5"/>
+            <point key="canvasLocation" x="1248.5" y="1002.5"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="v3Y-uN-aE3">
             <objects>
-                <viewController storyboardIdentifier="PetsListController" id="1Vx-lp-IYz" customClass="ListViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PetsViewController" id="1Vx-lp-IYz" customClass="ListViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ufX-vQ-Gv7"/>
                         <viewControllerLayoutGuide type="bottom" id="jvh-bj-mrb"/>
@@ -281,15 +233,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dragBackground" translatesAutoresizingMaskIntoConstraints="NO" id="lZF-xI-sXw">
-                                <rect key="frame" x="74" y="587" width="227" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Wop-WE-FBt"/>
-                                    <constraint firstAttribute="width" constant="227" id="cma-aM-XEv"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Yg-Js-2G3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="552"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="90" id="Ard-Pd-DGz" customClass="PetTableViewCell" customModule="Family_Pet" customModuleProvider="target">
@@ -312,7 +257,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAo-XK-Kfh">
-                                                    <rect key="frame" x="100" y="46.5" width="63.5" height="14.5"/>
+                                                    <rect key="frame" x="100" y="46" width="63.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -343,6 +288,7 @@
                                             <outlet property="name" destination="5jM-H2-kk0" id="Wy0-dF-ugT"/>
                                             <outlet property="petDescription" destination="yAo-XK-Kfh" id="Fwh-ya-0rP"/>
                                             <outlet property="petProfile" destination="IuY-34-obn" id="LU7-OQ-GBH"/>
+                                            <segue destination="d2b-Gw-GlV" kind="show" id="6P0-cJ-kRS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -354,11 +300,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="lZF-xI-sXw" secondAttribute="centerX" id="SCT-tb-5Ow"/>
+                            <constraint firstItem="jvh-bj-mrb" firstAttribute="top" secondItem="3Yg-Js-2G3" secondAttribute="bottom" id="JON-6K-FEz"/>
                             <constraint firstAttribute="trailing" secondItem="3Yg-Js-2G3" secondAttribute="trailing" id="WZO-v5-F8E"/>
-                            <constraint firstItem="jvh-bj-mrb" firstAttribute="top" secondItem="lZF-xI-sXw" secondAttribute="bottom" priority="999" constant="38" id="XhP-Rh-ucj"/>
                             <constraint firstItem="3Yg-Js-2G3" firstAttribute="top" secondItem="ufX-vQ-Gv7" secondAttribute="bottom" id="cFK-LP-svS"/>
-                            <constraint firstItem="lZF-xI-sXw" firstAttribute="top" secondItem="3Yg-Js-2G3" secondAttribute="bottom" constant="15" id="p5u-gy-O9t"/>
                             <constraint firstItem="3Yg-Js-2G3" firstAttribute="leading" secondItem="IFa-SW-uXS" secondAttribute="leading" id="yMo-0e-A0N"/>
                         </constraints>
                     </view>
@@ -369,7 +313,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKt-gM-ERm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5" y="842.5"/>
+            <point key="canvasLocation" x="1931.5" y="794.5"/>
+        </scene>
+        <!--Pet View Controller-->
+        <scene sceneID="t5B-Kw-jd2">
+            <objects>
+                <viewController id="d2b-Gw-GlV" customClass="PetViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dXz-TA-qhv"/>
+                        <viewControllerLayoutGuide type="bottom" id="H2l-DD-O2X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dax-AS-tCU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-vC-ocd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="XuZ-ZB-fJf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dogCamera" translatesAutoresizingMaskIntoConstraints="NO" id="XUy-3n-8aq" customClass="PFImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-qw-Tll">
+                                            <rect key="frame" x="158" y="8" width="76" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x19-Hf-svs">
+                                            <rect key="frame" x="158" y="37" width="36" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attributes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3n-3D-ueI">
+                                            <rect key="frame" x="158" y="66" width="75" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OwnerCell" textLabel="Jem-iT-7ue" style="IBUITableViewCellStyleDefault" id="Sqb-S0-BRH">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sqb-S0-BRH" id="5ub-Mc-F8h">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jem-iT-7ue">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="d2b-Gw-GlV" id="Ji8-AT-O53"/>
+                                    <outlet property="delegate" destination="d2b-Gw-GlV" id="fgk-b7-Mq5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="H2l-DD-O2X" firstAttribute="top" secondItem="dgs-vC-ocd" secondAttribute="bottom" id="ANZ-bs-Pwy"/>
+                            <constraint firstAttribute="trailing" secondItem="dgs-vC-ocd" secondAttribute="trailing" id="eJM-BA-7rL"/>
+                            <constraint firstItem="dgs-vC-ocd" firstAttribute="top" secondItem="dXz-TA-qhv" secondAttribute="bottom" id="l2o-hv-Lr1"/>
+                            <constraint firstItem="dgs-vC-ocd" firstAttribute="leading" secondItem="dax-AS-tCU" secondAttribute="leading" id="sxq-gQ-IbH"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="petAttributesLabel" destination="p3n-3D-ueI" id="4Ad-Bj-swH"/>
+                        <outlet property="petNameLabel" destination="7Yc-qw-Tll" id="4Ci-J2-FEa"/>
+                        <outlet property="petProfile" destination="XUy-3n-8aq" id="dya-t1-tWf"/>
+                        <outlet property="petTypeLabel" destination="x19-Hf-svs" id="AQ1-NS-aqi"/>
+                        <outlet property="tableView" destination="dgs-vC-ocd" id="OuA-ph-jPQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Snd-TQ-TGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2485.5" y="806.5"/>
         </scene>
         <!--Add Pet View Controller-->
         <scene sceneID="Xfx-GD-M56">
@@ -519,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH1-px-BLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5" y="1634.5"/>
+            <point key="canvasLocation" x="1931.5" y="1586.5"/>
         </scene>
         <!--Friends Table View Controller-->
         <scene sceneID="gKe-nV-zt5">
@@ -559,7 +589,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbf-lM-gdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5" y="2428.5"/>
+            <point key="canvasLocation" x="1931.5" y="2380.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tqR-LX-dk2">
@@ -671,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-xp-clE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130.5" y="842.5"/>
+            <point key="canvasLocation" x="3882.5" y="930.5"/>
         </scene>
         <!--Paging Menu Controller-->
         <scene sceneID="sf1-b6-Rwb">
@@ -892,60 +922,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQs-OO-1M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130.5" y="1634.5"/>
-        </scene>
-        <!--Reminder Scroll View Controller-->
-        <scene sceneID="47W-fC-jEo">
-            <objects>
-                <viewController storyboardIdentifier="ReminderScrollViewController" id="wMP-rT-mDm" customClass="ReminderScrollViewController" customModule="Family_Pet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6Kf-5Y-gf1"/>
-                        <viewControllerLayoutGuide type="bottom" id="0EI-wo-I58"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u8b-sk-U7k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX8-do-my6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqQ-lg-emw">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="width" secondItem="oX8-do-my6" secondAttribute="width" priority="999" id="3nN-Uf-exa"/>
-                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="top" secondItem="oX8-do-my6" secondAttribute="top" id="5WF-zT-ive"/>
-                                    <constraint firstAttribute="trailing" secondItem="YqQ-lg-emw" secondAttribute="trailing" id="PQA-QS-DS8"/>
-                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="leading" secondItem="oX8-do-my6" secondAttribute="leading" id="XIg-yA-EHX"/>
-                                    <constraint firstItem="YqQ-lg-emw" firstAttribute="height" secondItem="oX8-do-my6" secondAttribute="height" priority="999" id="fL7-U8-RE8"/>
-                                    <constraint firstAttribute="bottom" secondItem="YqQ-lg-emw" secondAttribute="bottom" id="zoh-Ma-gyC"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oX8-do-my6" secondAttribute="trailing" id="Bm8-5U-9W2"/>
-                            <constraint firstItem="oX8-do-my6" firstAttribute="top" secondItem="u8b-sk-U7k" secondAttribute="top" id="fnC-Ux-gfq"/>
-                            <constraint firstItem="0EI-wo-I58" firstAttribute="top" secondItem="oX8-do-my6" secondAttribute="bottom" id="l3K-hm-rX6"/>
-                            <constraint firstItem="oX8-do-my6" firstAttribute="leading" secondItem="u8b-sk-U7k" secondAttribute="leading" id="xRB-eB-ag0"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="contentView" destination="YqQ-lg-emw" id="rJU-cw-slc"/>
-                        <outlet property="scrollView" destination="oX8-do-my6" id="glq-Oj-eU5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KyC-NI-BL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2614.5" y="1250.5"/>
+            <point key="canvasLocation" x="3882.5" y="1722.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="dogCamera" width="94" height="94"/>
-        <image name="dragBackground" width="225" height="42"/>
         <image name="dragBackgroundReminder" width="276" height="42"/>
         <image name="facebookButton" width="148" height="32"/>
         <image name="feedIcon" width="24" height="31"/>

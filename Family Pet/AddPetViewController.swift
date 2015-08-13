@@ -11,8 +11,6 @@ import Parse
 
 
 class AddPetViewController: UIViewController, UITextFieldDelegate {
-
-    var delegate: PetScrollView!
     
     @IBOutlet var petProfile: PFImageView!
     @IBOutlet var nameLabel: UITextField!
@@ -135,7 +133,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func cancel(sender: AnyObject) {
         clearData()
-        self.delegate!.moveToView(0)
     }
     
     @IBAction func save(sender: AnyObject) {
@@ -234,7 +231,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
                 //3
                 self.clearData()
                 NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
-                self.delegate!.moveToView(0)
                 
             } else {
                 //4
@@ -260,7 +256,6 @@ extension AddPetViewController: UIImagePickerControllerDelegate, UINavigationCon
         imageAdded = true
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
-            self.delegate!.moveToView(1)
             UIApplication.sharedApplication().statusBarStyle = .LightContent
         })
         
@@ -269,7 +264,6 @@ extension AddPetViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
-            self.delegate!.moveToView(1)
             UIApplication.sharedApplication().statusBarStyle = .LightContent
         })
 

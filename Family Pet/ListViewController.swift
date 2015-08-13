@@ -14,7 +14,6 @@ var selectedPetImage:UIImage?
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var delegate: PetScrollView!
     
     @IBOutlet var petsTable: UITableView!
     
@@ -76,8 +75,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPet = pets[indexPath.row]
-        NSNotificationCenter.defaultCenter().postNotificationName(loadPetNotificationKey, object: self)
-        self.delegate!.moveToView(1)
     }
     
     override func didReceiveMemoryWarning() {
