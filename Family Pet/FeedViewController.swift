@@ -11,7 +11,8 @@ import Parse
 
 let globalNotificationKey = "com.canalesb.globalKey"
 let reloadRequestNotificationKey = "com.canalesb.reloadRequestKey"
-let friendsReloadNotificationKey = "com.canalesb.friendsReloadKey"
+let loadPetNotificationKey = "com.canalesb.loadPetKey"
+let loadReminderNotificationKey = "com.canalesb.loadReminderKey"
 
 var reminders: [Reminder] = []
 var pets = [Pet]()

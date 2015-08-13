@@ -34,6 +34,8 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reminderDate = NSDate().dateByAddingDays(1)
+        
         // Add reload observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: globalNotificationKey, object: nil)
         
@@ -172,6 +174,7 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     }
     
     @IBAction func save(sender: AnyObject) {
+        self.showWaitOverlay()
         getMembersAndSave()
     }
     @IBAction func cancel(sender: AnyObject) {
@@ -212,6 +215,8 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
                     }
                 }
             }
+            self.removeAllOverlays()
+
         }
         
     }

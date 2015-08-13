@@ -14,8 +14,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
 
     var delegate: PetScrollView!
     
-    @IBOutlet var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet var petProfile: UIImageView!
+    @IBOutlet var petProfile: PFImageView!
     @IBOutlet var nameLabel: UITextField!
     @IBOutlet var descriptionLabel: UITextField!
     @IBOutlet var segmentedControl: ADVSegmentedControl!
@@ -27,6 +26,8 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadData", name: loadPetNotificationKey, object: nil)
         
         petProfile.layer.cornerRadius = petProfile.frame.size.width / 2;
         petProfile.clipsToBounds = true
@@ -61,11 +62,46 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        setOwnersButtonTitle()
+    }
+    
+    func setOwnersButtonTitle(){
         if friendsSelected.count == 1 {
             ownersButton.setTitle("1 additional owner", forState: .Normal)
         } else if friendsSelected.count > 0 {
             ownersButton.setTitle("\(friendsSelected.count) additional owners", forState: .Normal)
+        } else {
+            ownersButton.setTitle("click to add owners", forState: .Normal)
         }
+
+    }
+    
+    func loadData(){
+        nameLabel.text = selectedPet?.name
+        descriptionLabel.text = selectedPet?.attributes
+        if let type = selectedPet?.type {
+            segmentedControl.selectedIndex = type
+        }
+        petProfile.file = selectedPet?.image
+        petProfile.loadInBackground()
+        friendsSelected.removeAll(keepCapacity: false)
+        
+        var relation = selectedPet!.relationForKey("owners")
+        // Find all owners
+        relation.query()?.findObjectsInBackgroundWithBlock({ (oldOwners, error) -> Void in
+            if error == nil {
+                if let old = oldOwners as? [PFUser] {
+                    for var i = 0; i < old.count; i++ {
+                        if old[i].objectId != PFUser.currentUser()?.objectId {
+                            friendsSelected.append(old[i])
+                        }
+                    }
+                    self.setOwnersButtonTitle()
+                }
+            }
+        })
+        
+        
     }
     
     func clearData(){
@@ -73,9 +109,9 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         descriptionLabel.text = ""
         segmentedControl.selectedIndex = 0
         petProfile.image = UIImage(named: "dogCamera")
-        loadingSpinner.stopAnimating()
         friendsSelected.removeAll(keepCapacity: false)
-        
+        selectedPet = nil
+        setOwnersButtonTitle()
     }
     
     func DismissKeyboard(){
@@ -109,10 +145,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         //Disable the send button until we are ready
         // .enabled = false
         
-        loadingSpinner.startAnimating()
-        
-        
-        
+        self.showWaitOverlay()
         
         let pictureData = UIImageJPEGRepresentation(petProfile.image!, CGFloat(0.75))
         let file = PFFile(name: "image", data: pictureData)
@@ -120,12 +153,14 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         file.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             if succeeded {
                 //2
-                self.savePet(file)
+                self.setPetRelations(file)
             } else if let error = error {
                 //3
                 println("Error \(error)")
                 //                self.showErrorView(error)
             }
+            self.removeAllOverlays()
+            
             }, progressBlock: { percent in
                 //4
                 println("Uploaded: \(percent)%")
@@ -148,7 +183,9 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func savePet(file: PFFile?) {
+    func setPetRelations(file: PFFile?){
+        
+        
         var newFile:PFFile?
         if imageAdded {
             newFile = file
@@ -156,14 +193,41 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         
         // let’s say we have a few objects representing Author objects
         let owner = PFUser.currentUser()!
-        
-        
-        let pet = Pet(image: newFile, user: PFUser.currentUser()!, name: self.nameLabel.text, type: self.petType, attributes: self.descriptionLabel.text)
-        let relation = pet.relationForKey("owners")
-        relation.addObject(owner)
-        for var i = 0; i < friendsSelected.count; i++ {
-            relation.addObject(friendsSelected[i])
+        var pet:Pet
+        var relation:PFRelation
+        if selectedPet != nil {
+            pet = selectedPet!
+            var relation = pet.relationForKey("owners")
+            // Find all owners
+            relation.query()?.findObjectsInBackgroundWithBlock({ (oldOwners, error) -> Void in
+                if error == nil {
+                    if let old = oldOwners as? [PFUser] {
+                        for var i = 0; i < old.count; i++ {
+                            if old[i].objectId != PFUser.currentUser()?.objectId {
+                                relation.removeObject(old[i])
+                            }
+                        }
+                        for var i = 0; i < friendsSelected.count; i++ {
+                            relation.addObject(friendsSelected[i])
+                        }
+                        self.savePet(pet)
+                    }
+                }
+            })
+            
+        } else {
+            pet = Pet(image: newFile, user: PFUser.currentUser()!, name: self.nameLabel.text, type: self.petType, attributes: self.descriptionLabel.text)
+            relation = pet.relationForKey("owners")
+            relation.addObject(owner)
+            for var i = 0; i < friendsSelected.count; i++ {
+                relation.addObject(friendsSelected[i])
+            }
+            savePet(pet)
         }
+        
+    }
+    
+    func savePet(pet: Pet) {
         
         pet.saveInBackgroundWithBlock{ succeeded, error in
             if succeeded {

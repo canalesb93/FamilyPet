@@ -62,6 +62,7 @@
 		0ADA9F9A1B7BBD02006B5CD1 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F991B7BBD02006B5CD1 /* FeedTableViewCell.swift */; };
 		0ADA9F9C1B7BE2A7006B5CD1 /* AFDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */; };
 		0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */; };
+		0ADA9FB11B7C383B006B5CD1 /* SwiftOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		0ADA9F991B7BBD02006B5CD1 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFDateExtension.swift; sourceTree = "<group>"; };
 		0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOverlays.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 		0AA0D6981B7343FA00EF07C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */,
 				0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */,
 				0AA2D9A41B75B23D00BBC855 /* RMDatePicker */,
 				0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */,
@@ -500,6 +503,7 @@
 				0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */,
 				0ABC60C61B74092700C31F33 /* AddPetViewController.swift in Sources */,
 				0AA2D9AA1B75B25600BBC855 /* RMDateSelectionViewController.m in Sources */,
+				0ADA9FB11B7C383B006B5CD1 /* SwiftOverlays.swift in Sources */,
 				0ABC60DD1B74C1F500C31F33 /* PullToRefreshView.swift in Sources */,
 				0ADA9F9A1B7BBD02006B5CD1 /* FeedTableViewCell.swift in Sources */,
 				0AA0D6B81B7379A000EF07C3 /* PetTextFields.swift in Sources */,

@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+var selectedPet:Pet?
+var selectedPetImage:UIImage?
+
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var delegate: PetScrollView!
@@ -45,8 +48,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.petProfile.layer.cornerRadius = cell.petProfile.frame.size.width / 2;
         cell.petProfile.clipsToBounds = true
-        cell.petProfile.layer.borderWidth = 6.0;
-        cell.petProfile.layer.borderColor = UIColor(netHex: 0x4C4C4F).CGColor
+        cell.petProfile.layer.borderWidth = 2.0;
+        cell.petProfile.layer.borderColor = UIColor(netHex: 0xE0D59F).CGColor
         cell.petProfile.image = UIImage(named: "dogCamera")
         
         let pet = pets[indexPath.row]
@@ -56,7 +59,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.petProfile.contentMode = UIViewContentMode.ScaleToFill
             cell.petProfile.file = pet.image
             cell.petProfile.loadInBackground(nil) { percent in
-                cell.progressView.progress = Float(percent)*0.01
                 // println("\(percent)%")
             }
         }
@@ -73,7 +75,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Selected row at index: \(indexPath.row)")
+        selectedPet = pets[indexPath.row]
+        NSNotificationCenter.defaultCenter().postNotificationName(loadPetNotificationKey, object: self)
+        self.delegate!.moveToView(1)
     }
     
     override func didReceiveMemoryWarning() {

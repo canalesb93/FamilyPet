@@ -35,8 +35,17 @@ class FriendsTableViewController: UITableViewController {
                 for i in 0..<data.count {
                     let valueDict : NSDictionary = data[i] as! NSDictionary
                     let id = valueDict.objectForKey("id") as! String
-                    friendIds.append(id)
+                    
+                    // unoptimized, needs reformat
                     self.selected.append(false)
+                    for var j = 0; j < friendsSelected.count; j++ {
+                        if id == friendsSelected[j]["uid"] as! String {
+                            self.selected[i] = true
+                            break
+                        }
+                    }
+                    friendIds.append(id)
+
                     // println("the id value is \(id)")
                 }
                 
@@ -116,7 +125,9 @@ class FriendsTableViewController: UITableViewController {
         } else {
             cell.textLabel?.text = "Name Pending"
         }
-        
+        if selected[indexPath.row] {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
         cell.imageView?.image = getProfPic(friend["uid"] as! String)
 
 

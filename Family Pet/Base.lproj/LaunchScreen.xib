@@ -16,7 +16,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KzI-vz-Mpw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KzI-vz-Mpw">
                     <rect key="frame" x="92" y="64" width="192" height="133"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="192" id="9T3-gd-3yt"/>
@@ -38,6 +38,6 @@
         </view>
     </objects>
     <resources>
-        <image name="petLogo" width="573" height="399"/>
+        <image name="petLogo" width="129" height="121"/>
     </resources>
 </document>
