@@ -27,6 +27,11 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        petProfile.layer.cornerRadius = petProfile.frame.size.width / 2;
+        petProfile.clipsToBounds = true
+        petProfile.layer.borderWidth = 6.0;
+        petProfile.layer.borderColor = UIColor(netHex: 0xE0D59F).CGColor
+        
         loadData()
         // Do any additional setup after loading the view.
     }
@@ -70,15 +75,19 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OwnerCell", forIndexPath: indexPath) as! UITableViewCell
-        
         if indexPath.section == 0{
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("OwnerCell", forIndexPath: indexPath) as! UITableViewCell
             cell.textLabel?.text = owners[indexPath.row]
+            return cell
+            
         } else {
-            cell.textLabel?.text = reminders[indexPath.row]
+         
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReminderCell", forIndexPath: indexPath) as! ReminderTableViewCell
+            cell.name?.text = reminders[indexPath.row]
+            return cell
+            
         }
-        
-        return cell
     }
 
     // print the date as the section header title
@@ -86,12 +95,31 @@ class PetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return sectionsInTable[section]
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 35 }
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor(netHex: 0xF7F7FF)
         header.textLabel.textColor = UIColor(netHex: 0x8C8C99)
+        header.textLabel.font = UIFont(name: "HelveticaNeue", size: 17)!
         
+        switch (section) {
+        case 0:
+            header.textLabel.text = sectionsInTable[0]
+        case 1:
+            header.textLabel.text = sectionsInTable[1]
+        default:
+            header.textLabel.text = "other";
+        }
+        
+//        header.frame
     }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 10))
+        footerView.backgroundColor = UIColor(netHex: 0xF7F7FF)
+        return footerView
+    }
+    
     
     /*
     // MARK: - Navigation

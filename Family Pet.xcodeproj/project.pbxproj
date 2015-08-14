@@ -63,6 +63,7 @@
 		0ADA9F9F1B7C0AF4006B5CD1 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */; };
 		0ADA9FB11B7C383B006B5CD1 /* SwiftOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */; };
 		0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */; };
+		0ADA9FB91B7D6E08006B5CD1 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		0ADA9F9E1B7C0AF4006B5CD1 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOverlays.swift; sourceTree = "<group>"; };
 		0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
+		0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 			children = (
 				0AA0D6B71B7379A000EF07C3 /* PetTextFields.swift */,
 				0AA0D6B91B73FCAC00EF07C3 /* PetDescriptionTextField.swift */,
+				0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADA9FB91B7D6E08006B5CD1 /* ButtonAnimation.swift in Sources */,
 				0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */,
 				0AA0D69A1B73483700EF07C3 /* BubbleTransition.swift in Sources */,
 				0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */,

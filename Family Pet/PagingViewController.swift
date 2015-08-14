@@ -45,18 +45,18 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         
         let options = PagingMenuOptions()
         
-        options.backgroundColor = UIColor(netHex:0xF7F7FF)
-        options.selectedBackgroundColor = UIColor(netHex:0x4C4C4F)
+        options.backgroundColor = UIColor(netHex:0x4C4C4F)
+        options.selectedBackgroundColor = UIColor(netHex:0xF7F7FF)
         options.animationDuration = NSTimeInterval(0.25)
         
-        options.selectedTextColor = UIColor(netHex: 0xF7F7FF)
-        options.textColor = UIColor(netHex: 0x4C4C4F)
+        options.selectedTextColor = UIColor(netHex: 0x4C4C4F)
+        options.textColor = UIColor(netHex: 0xF7F7FF)
         options.font = UIFont(name: "HelveticaNeue-Light", size: 18)!
 
 
         options.menuItemMode = PagingMenuOptions.MenuItemMode.None
         options.menuHeight = pagingBarHeight!
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FlexibleItemWidth(centerItem: true, scrollingMode: .PagingEnabled)
+        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FixedItemWidth(width: self.view.frame.width/2, centerItem: true, scrollingMode: .PagingEnabled)
         
         options.defaultPage = 0
         pagingMenuController.setup(viewControllers: viewControllers, options: options)
@@ -70,7 +70,12 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     }
     
     func didMoveToMenuPage(page: Int) {
-        currentPage = page
+        if page == 1 {
+            var b = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newPet")
+            self.navigationItem.rightBarButtonItem = b
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,8 +86,12 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        // UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
         
+    }
+    
+    func newPet(){
+        performSegueWithIdentifier("newPetSegue", sender: self)
     }
 
     /*

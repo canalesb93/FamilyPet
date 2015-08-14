@@ -56,11 +56,17 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
 //        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 //        view.addGestureRecognizer(tap)
         
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
 
     }
     
     override func viewDidAppear(animated: Bool) {
         setOwnersButtonTitle()
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     }
     
     func setOwnersButtonTitle(){
@@ -132,7 +138,11 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        clearData()
+        var button = sender as! UIButton
+        self.clearData()
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+        button.animateSlingPress { () -> Void in }
+        
     }
     
     @IBAction func save(sender: AnyObject) {
