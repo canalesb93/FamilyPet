@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()
         
+        Pet.registerSubclass()
+        Reminder.registerSubclass()
+        
         // Initialize Parse.
         Parse.setApplicationId("DAszHT3GJ15w6BfeeejMArmtfZrA52El8qvrE5ll",
             clientKey: "vktqM4mrC7bxNzTQXOHrEVaG9j6PhBe7AyLxtQpU")

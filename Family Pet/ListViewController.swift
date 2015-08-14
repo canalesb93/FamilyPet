@@ -17,9 +17,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var petsTable: UITableView!
     
+    var delegate: PagingViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: globalNotificationKey, object: nil)
+        
+        println("PETS VIEWDIDLOAD")
         
         petsTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         petsTable.tableFooterView = UIView(frame: CGRectZero)
@@ -75,7 +79,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPet = pets[indexPath.row]
+        self.delegate?.showPet()
     }
+    
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -34,10 +34,6 @@
 		0AA0D6961B73414200EF07C3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA0D6931B73414200EF07C3 /* FBSDKShareKit.framework */; };
 		0AA0D69A1B73483700EF07C3 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */; };
 		0AA0D69C1B7349E600EF07C3 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */; };
-		0AA0D6A21B734AFE00EF07C3 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D69E1B734AFE00EF07C3 /* MenuItemView.swift */; };
-		0AA0D6A31B734AFE00EF07C3 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D69F1B734AFE00EF07C3 /* MenuView.swift */; };
-		0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A01B734AFE00EF07C3 /* PagingMenuController.swift */; };
-		0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A11B734AFE00EF07C3 /* PagingMenuOptions.swift */; };
 		0AA0D6A71B734B9700EF07C3 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */; };
 		0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */; };
 		0AA0D6AD1B734DD400EF07C3 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */; };
@@ -64,6 +60,7 @@
 		0ADA9FB11B7C383B006B5CD1 /* SwiftOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */; };
 		0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */; };
 		0ADA9FB91B7D6E08006B5CD1 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */; };
+		0ADA9FBD1B7D8EEE006B5CD1 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FBC1B7D8EEE006B5CD1 /* CAPSPageMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,10 +106,6 @@
 		0AA0D6931B73414200EF07C3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		0AA0D69E1B734AFE00EF07C3 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
-		0AA0D69F1B734AFE00EF07C3 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		0AA0D6A01B734AFE00EF07C3 /* PagingMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuController.swift; sourceTree = "<group>"; };
-		0AA0D6A11B734AFE00EF07C3 /* PagingMenuOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuOptions.swift; sourceTree = "<group>"; };
 		0AA0D6A61B734B9700EF07C3 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AA1B734D9600EF07C3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0AA0D6AC1B734DD400EF07C3 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +134,7 @@
 		0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOverlays.swift; sourceTree = "<group>"; };
 		0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
+		0ADA9FBC1B7D8EEE006B5CD1 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,29 +273,18 @@
 		0AA0D6981B7343FA00EF07C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0ADA9FBC1B7D8EEE006B5CD1 /* CAPSPageMenu.swift */,
 				0ADA9FB01B7C383B006B5CD1 /* SwiftOverlays.swift */,
 				0ADA9F9B1B7BE2A7006B5CD1 /* AFDateExtension.swift */,
 				0AA2D9A41B75B23D00BBC855 /* RMDatePicker */,
 				0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */,
 				0ABC60D61B74C1BF00C31F33 /* PullToRefresh */,
-				0AA0D69D1B734AF000EF07C3 /* PagingMenu */,
 				0ABC60C91B74904A00C31F33 /* ImageUtil.swift */,
 				0AA0D6991B73483700EF07C3 /* BubbleTransition.swift */,
 				0AA0D6B31B73741A00EF07C3 /* ADVSegmentedControl.swift */,
 				0AA0D69B1B7349E600EF07C3 /* UIColorExtension.swift */,
 			);
 			name = Utilities;
-			sourceTree = "<group>";
-		};
-		0AA0D69D1B734AF000EF07C3 /* PagingMenu */ = {
-			isa = PBXGroup;
-			children = (
-				0AA0D69E1B734AFE00EF07C3 /* MenuItemView.swift */,
-				0AA0D69F1B734AFE00EF07C3 /* MenuView.swift */,
-				0AA0D6A01B734AFE00EF07C3 /* PagingMenuController.swift */,
-				0AA0D6A11B734AFE00EF07C3 /* PagingMenuOptions.swift */,
-			);
-			name = PagingMenu;
 			sourceTree = "<group>";
 		};
 		0AA0D6B01B735E9800EF07C3 /* Other */ = {
@@ -483,12 +466,10 @@
 				0ADA9FB91B7D6E08006B5CD1 /* ButtonAnimation.swift in Sources */,
 				0AA0D6BA1B73FCAC00EF07C3 /* PetDescriptionTextField.swift in Sources */,
 				0AA0D69A1B73483700EF07C3 /* BubbleTransition.swift in Sources */,
-				0AA0D6A51B734AFE00EF07C3 /* PagingMenuOptions.swift in Sources */,
-				0AA0D6A41B734AFE00EF07C3 /* PagingMenuController.swift in Sources */,
 				0AA2D9A71B75B24C00BBC855 /* RMActionController.m in Sources */,
-				0AA0D6A31B734AFE00EF07C3 /* MenuView.swift in Sources */,
 				0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */,
 				0ABC60E41B755BEC00C31F33 /* ReminderScrollViewController.swift in Sources */,
+				0ADA9FBD1B7D8EEE006B5CD1 /* CAPSPageMenu.swift in Sources */,
 				0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */,
 				0A4E6E5B1B758167003AA7DA /* AKPickerView.swift in Sources */,
 				0AA0D6AB1B734D9600EF07C3 /* FeedViewController.swift in Sources */,
@@ -514,7 +495,6 @@
 				0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */,
 				0AA0D6B61B73784200EF07C3 /* Pet.swift in Sources */,
 				0AA0D69C1B7349E600EF07C3 /* UIColorExtension.swift in Sources */,
-				0AA0D6A21B734AFE00EF07C3 /* MenuItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

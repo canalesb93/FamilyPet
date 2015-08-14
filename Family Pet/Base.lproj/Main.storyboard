@@ -90,26 +90,13 @@
                     <view key="view" contentMode="scaleToFill" id="GKt-OK-EaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suq-7U-emZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <connections>
-                                    <segue destination="8fy-7g-7UF" kind="embed" id="wi9-Gd-5Og"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="suq-7U-emZ" firstAttribute="leading" secondItem="GKt-OK-EaL" secondAttribute="leading" id="5ME-FA-SqI"/>
-                            <constraint firstItem="a2t-PO-okm" firstAttribute="top" secondItem="suq-7U-emZ" secondAttribute="bottom" id="8b5-AW-FN3"/>
-                            <constraint firstAttribute="trailing" secondItem="suq-7U-emZ" secondAttribute="trailing" id="RoX-kO-Bkx"/>
-                            <constraint firstItem="suq-7U-emZ" firstAttribute="top" secondItem="lhK-1I-m2r" secondAttribute="bottom" id="iBX-eQ-9ay"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="Evr-nJ-QuQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="nOK-dz-2EE" kind="presentation" identifier="newPetSegue" id="Ku7-qz-7tY"/>
+                        <segue destination="nOK-dz-2EE" kind="presentation" identifier="NewPetSegue" id="Ku7-qz-7tY"/>
+                        <segue destination="d2b-Gw-GlV" kind="show" identifier="ShowPetSegue" id="HYG-oC-2No"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hT-W7-rZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4m-yb-saI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872.5" y="1282.5"/>
+            <point key="canvasLocation" x="1211.5" y="806.5"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="v3Y-uN-aE3">
@@ -291,7 +278,6 @@
                                             <outlet property="name" destination="5jM-H2-kk0" id="Wy0-dF-ugT"/>
                                             <outlet property="petDescription" destination="yAo-XK-Kfh" id="Fwh-ya-0rP"/>
                                             <outlet property="petProfile" destination="IuY-34-obn" id="LU7-OQ-GBH"/>
-                                            <segue destination="d2b-Gw-GlV" kind="show" id="6P0-cJ-kRS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKt-gM-ERm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1411.5" y="806.5"/>
+            <point key="canvasLocation" x="1656.5" y="806.5"/>
         </scene>
         <!--Pet View Controller-->
         <scene sceneID="t5B-Kw-jd2">
@@ -327,7 +313,7 @@
                         <viewControllerLayoutGuide type="bottom" id="H2l-DD-O2X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dax-AS-tCU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-vC-ocd">
@@ -424,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Snd-TQ-TGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909.5" y="806.5"/>
+            <point key="canvasLocation" x="2189.5" y="-3.5"/>
         </scene>
         <!--Add Pet View Controller-->
         <scene sceneID="Xfx-GD-M56">
@@ -574,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH1-px-BLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="1570.5"/>
+            <point key="canvasLocation" x="2184.5" y="806.5"/>
         </scene>
         <!--Friends Table View Controller-->
         <scene sceneID="gKe-nV-zt5">
@@ -614,7 +600,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbf-lM-gdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="2364.5"/>
+            <point key="canvasLocation" x="2189.5" y="1664.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tqR-LX-dk2">
@@ -726,26 +712,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-xp-clE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2482.5" y="834.5"/>
-        </scene>
-        <!--Paging Menu Controller-->
-        <scene sceneID="sf1-b6-Rwb">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8fy-7g-7UF" customClass="PagingMenuController" customModule="Family_Pet" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8CA-tq-ZrA"/>
-                        <viewControllerLayoutGuide type="bottom" id="J55-fg-IFT"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3zC-Wm-6AF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YF2-nx-BML" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2122.5" y="-3.5"/>
+            <point key="canvasLocation" x="2938.5" y="682.5"/>
         </scene>
         <!--Add Reminder View Controller-->
         <scene sceneID="G31-Ae-Niz">
@@ -947,7 +914,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQs-OO-1M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2482.5" y="1626.5"/>
+            <point key="canvasLocation" x="2938.5" y="1490.5"/>
         </scene>
     </scenes>
     <resources>

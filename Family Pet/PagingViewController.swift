@@ -9,14 +9,21 @@
 import UIKit
 
 
+
+protocol PagingViewDelegate {
+    func showPet()
+}
+
 var navBarHeight: CGFloat?
 var pagingBarHeight: CGFloat?
 
-class PagingViewController: UIViewController, PagingMenuControllerDelegate {
+class PagingViewController: UIViewController, CAPSPageMenuDelegate, PagingViewDelegate {
 
     var petListController: ListViewController?
     var currentPage = 1
     
+    var pageMenu : CAPSPageMenu?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +37,8 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
+//        self.navigationController?.navigationBar.translucent = false
+        
         navBarHeight = self.navigationController?.navigationBar.frame.size.height
         pagingBarHeight = CGFloat(35.0)
         
@@ -39,43 +47,54 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
         petListController!.title = "pets"
         let feedController = self.storyboard?.instantiateViewControllerWithIdentifier("FeedViewController") as! FeedViewController
         feedController.title = "feed"
-        let viewControllers = [feedController, petListController!]
         
-        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
+        petListController?.delegate = self
         
-        let options = PagingMenuOptions()
+        let controllerArray = [feedController, petListController!]
         
-        options.backgroundColor = UIColor(netHex:0x4C4C4F)
-        options.selectedBackgroundColor = UIColor(netHex:0xF7F7FF)
-        options.animationDuration = NSTimeInterval(0.25)
+        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
+        // Example:
         
-        options.selectedTextColor = UIColor(netHex: 0x4C4C4F)
-        options.textColor = UIColor(netHex: 0xF7F7FF)
-        options.font = UIFont(name: "HelveticaNeue-Light", size: 18)!
+        var parameters: [CAPSPageMenuOption] = [
+            .ScrollMenuBackgroundColor(UIColor(netHex: 0x4C4C4F)),
+            .ViewBackgroundColor(UIColor(netHex: 0xF7F7FF)),
+            .SelectionIndicatorColor(UIColor.orangeColor()),
+            .BottomMenuHairlineColor(UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)),
+            .MenuItemFont(UIFont(name: "HelveticaNeue-Light", size: 16.0)!),
+            .MenuHeight(35.0),
+            .UseMenuLikeSegmentedControl(true),
+            .MenuItemSeparatorWidth(0.0),
+            .AddBottomMenuHairline (false),
+            .EnableHorizontalBounce(false),
+//            .MenuItemWidth(90.0),
+            .CenterMenuItems(true)
+        ]
+        
 
-
-        options.menuItemMode = PagingMenuOptions.MenuItemMode.None
-        options.menuHeight = pagingBarHeight!
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.FixedItemWidth(width: self.view.frame.width/2, centerItem: true, scrollingMode: .PagingEnabled)
+        // Initialize page menu with controller array, frame, and optional parameters
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         
-        options.defaultPage = 0
-        pagingMenuController.setup(viewControllers: viewControllers, options: options)
-        pagingMenuController.delegate = self
-
+        // Lastly add page menu as subview of base view controller view
+        // or use pageMenu controller in you view hierachy as desired
+        self.view.addSubview(pageMenu!.view)
+        
+        pageMenu!.delegate = self
+        
+        
         // Do any additional setup after loading the view.
     }
     
-    func willMoveToMenuPage(page: Int) {
-
-    }
     
-    func didMoveToMenuPage(page: Int) {
-        if page == 1 {
+    func willMoveToPage(controller: UIViewController, index: Int){}
+    
+    func didMoveToPage(controller: UIViewController, index: Int){
+        if index == 1 {
             var b = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newPet")
             self.navigationItem.rightBarButtonItem = b
         } else {
             self.navigationItem.rightBarButtonItem = nil
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,7 +110,11 @@ class PagingViewController: UIViewController, PagingMenuControllerDelegate {
     }
     
     func newPet(){
-        performSegueWithIdentifier("newPetSegue", sender: self)
+        performSegueWithIdentifier("NewPetSegue", sender: self)
+    }
+    
+    func showPet(){
+        performSegueWithIdentifier("ShowPetSegue", sender: self)
     }
 
     /*

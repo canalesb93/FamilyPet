@@ -27,6 +27,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: globalNotificationKey, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "globalReload", name: reloadRequestNotificationKey, object: nil)
         
+        println("FEED VIEWDIDLOAD")
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -34,6 +35,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.addPullToRefresh({ [weak self] in
             self!.globalReload()
         })
+        globalReload()
+
         // Do any additional setup after loading the view.
     }
     
@@ -47,7 +50,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(animated)
         
         //Reload the wall
-        globalReload()
     }
     
     func loadReminders(){
