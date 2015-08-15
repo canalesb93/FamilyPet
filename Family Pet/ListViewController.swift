@@ -27,6 +27,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         petsTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         petsTable.tableFooterView = UIView(frame: CGRectZero)
+        
+        self.petsTable.addPullToRefresh({ [weak self] in
+            NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
+        })
+        
+
 
         // Do any additional setup after loading the view.
     }
@@ -34,6 +40,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        println("PETS VIEWDIDAPPEAR")
+    }
+    
+    @IBAction func newPetButton(sender: AnyObject) {
+        let button = sender as! UIButton
+        button.animateSlingPress()
+        self.delegate?.newPet()
     }
     
     func reloadData(){
@@ -81,10 +97,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         selectedPet = pets[indexPath.row]
         self.delegate?.showPet()
     }
-    
 
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

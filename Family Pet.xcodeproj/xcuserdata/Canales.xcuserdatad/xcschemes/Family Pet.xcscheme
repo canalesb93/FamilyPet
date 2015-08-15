@@ -106,7 +106,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
+      customArchiveName = "Family Pet Alpha"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

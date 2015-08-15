@@ -61,9 +61,6 @@ class ReminderScrollViewController: UIViewController, ReminderScrollView {
         addToScrollViewNewController(NewReminderViewController)
         addToScrollViewNewController(ReminderListController)
         
-        NewReminderViewController.delegate = self
-        ReminderListController.delegate = self
-        
     }
     
     

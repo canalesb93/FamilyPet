@@ -48,7 +48,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         //Reload the wall
     }
     
@@ -57,7 +57,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let query = PFQuery(className: "Reminder")
         query.includeKey("pet")
         if let user = user {
-            query.whereKey("members", equalTo: user)
+            query.whereKey("pet", containedIn: pets)
             query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
                 if error == nil {
                     if let objects = objects as? [Reminder] {
@@ -82,7 +82,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if error == nil {
                     if let objects = objects as? [Pet] {
                         pets = objects
-                        NSNotificationCenter.defaultCenter().postNotificationName(globalNotificationKey, object: self)
+                        self.loadReminders()
                     }
                 } else {
                     println("Error loading pets: \(error)")
@@ -98,8 +98,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func globalReload(){
-        loadReminders()
         loadPets()
+    }
+    
+    func getProfPic(fid: String) -> UIImage? {
+        if (fid != "") {
+            var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=small" //type=large
+            var imgURL = NSURL(string: imgURLString)
+            var imageData = NSData(contentsOfURL: imgURL!)
+            var image = UIImage(data: imageData!)
+            return image
+        }
+        return nil
     }
     
     // MARK: - Table Functions
@@ -121,7 +131,21 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.typeIcon.image = reminder.getIcon()
         cell.statusIcon.image = reminder.getStatusIcon()
         
-        
+        PFCloud.callFunctionInBackground("getNextUserInQueue", withParameters: ["reminder": reminder.objectId!]) {
+            (response: AnyObject?, error: NSError?) -> Void in
+            let user = response as! PFUser
+
+            if let first_name = user["first_name"] as? String,
+               let uid = user["uid"] as! String? {
+                cell.userName.text = first_name
+                cell.facebookIcon.image = self.getProfPic(uid)
+                cell.facebookIcon.layer.cornerRadius = cell.facebookIcon.frame.size.width / 2;
+                cell.facebookIcon.clipsToBounds = true
+                cell.facebookIcon.layer.borderWidth = 1.0;
+                cell.facebookIcon.layer.borderColor = UIColor(netHex: 0xE0D59F).CGColor
+            }
+
+        }
         
         // load image
         //        if pet.image != nil {
@@ -145,6 +169,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         var cell = tableView.cellForRowAtIndexPath(indexPath) as! FeedTableViewCell
         let reminder = reminders[indexPath.row]
         reminder.completed = !reminder.completed
+        reminder.completedDate = NSDate().dateAtStartOfDay()
+        println(reminder.completedDate)
         reminder.saveEventually()
         cell.statusIcon.image = reminder.getStatusIcon()
     }

@@ -18,8 +18,6 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     var reminderDate: NSDate?
     var weekday:Int = 0
     
-    @IBOutlet var petPickerView: AKPickerView!
-    
     @IBOutlet var typeControl: ADVSegmentedControl!
     @IBOutlet var frequencyControl: ADVSegmentedControl!
     @IBOutlet var queueControl: ADVSegmentedControl!
@@ -29,12 +27,13 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     var pickerController: RMDateSelectionViewController?
     
     @IBOutlet var dateButton: UIButton!
-    var delegate: ReminderScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reminderDate = NSDate().dateByAddingDays(1)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+        // reminderDate = NSDate().dateByAddingDays(1)
         
         // Add reload observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: globalNotificationKey, object: nil)
@@ -57,16 +56,7 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         queueControl.selectedIndex = 0
         queueControl.addTarget(self, action: "queueValueChanged:", forControlEvents: .ValueChanged)
         
-        // Configure pet Picker
-        self.petPickerView.delegate = self
-        self.petPickerView.dataSource = self
-        
-        self.petPickerView.font = UIFont(name: "HelveticaNeue-Light", size: 25)!
-        self.petPickerView.highlightedFont = UIFont(name: "HelveticaNeue-Light", size: 25)!
-        self.petPickerView.textColor = UIColor(netHex: 0x4C4C4F)
-        self.petPickerView.highlightedTextColor = UIColor(netHex: 0x4C4C4F)
-        self.petPickerView.pickerViewStyle = .Wheel
-        self.petPickerView.maskDisabled = false
+        // Configure Date Picker
         
         let selectAction = RMAction(title: "Select", style: RMActionStyle.Done) { (controller) -> Void in
             if let dateController = controller.contentView as? UIDatePicker {
@@ -85,6 +75,7 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         dateButton.layer.borderWidth = 3
         dateButton.layer.borderColor = UIColor(netHex: 0x74747B).CGColor
         
+        reloadData()
     }
     
     func setDateButtonTitle(date: NSDate){
@@ -102,11 +93,12 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+    }
+    
     func reloadData(){
-        if pet == nil {
-            pet = pets.first
-        }
-        self.petPickerView.reloadData()
+        pet = selectedPet
     }
     
     // MARK: Segment Event Functions
@@ -175,50 +167,33 @@ class AddReminderViewController: UIViewController, AKPickerViewDataSource, AKPic
     
     @IBAction func save(sender: AnyObject) {
         self.showWaitOverlay()
-        getMembersAndSave()
+        self.saveReminder()
     }
     @IBAction func cancel(sender: AnyObject) {
-        self.delegate!.moveToView(0)
+        let button = sender as! UIButton
+        button.animateSlingPress()
+        dismissViewControllerAnimated(true, completion: { () -> Void in })
     }
     
-    func getMembersAndSave(){
-        let relation = pet!.relationForKey("owners")
-        let query = relation.query()
-        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if error == nil {
-                if let objects = objects as? [PFUser] {
-                    self.saveReminder(objects)
-                }
-            } else {
-                println("Error loading pets: \(error)")
-            }
-            
-        }
-    }
-    
-    func saveReminder(members: [PFUser]) {
-        
-        let reminder = Reminder(user: PFUser.currentUser()!, pet: pet!, type: reminderType, date: reminderDate!, weekday: weekday, frequency: reminderFrequency, queue: reminderQueue)
-        let reminderRelation = reminder.relationForKey("members")
-        for member in members {
-            reminderRelation.addObject(member)
-        }
-        reminder.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-            if succeeded {
-                // self.clearData()
-                NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
-                self.delegate!.moveToView(0)
-            } else {
-                if let error = error {
-                    if error.code == PFErrorCode.ValidationError.rawValue {
-                        println("Date must be in the future!")
+    func saveReminder() {
+        if reminderDate != nil {
+            let reminder = Reminder(user: PFUser.currentUser()!, pet: pet!, type: reminderType, date: reminderDate!, weekday: weekday, frequency: reminderFrequency, queue: reminderQueue)
+            reminder.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+                if succeeded {
+                    // self.clearData()
+                    NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+                } else {
+                    if let error = error {
+                        if error.code == PFErrorCode.ValidationError.rawValue {
+                            println("Date must be in the future!")
+                        }
                     }
                 }
-            }
-            self.removeAllOverlays()
+                self.removeAllOverlays()
 
+            }
         }
-        
     }
 
     

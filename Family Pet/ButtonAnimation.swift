@@ -18,6 +18,15 @@ extension UIButton {
             }) { (success) -> Void in
                 completion()
         }
-        
+    }
+    
+    func animateSlingPress(){
+        let button = self
+        button.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        UIView.animateWithDuration(0.25, delay: 0.0, usingSpringWithDamping: CGFloat(1.0), initialSpringVelocity: CGFloat(6.0), options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            button.transform = CGAffineTransformIdentity
+            }) { (success) -> Void in
+                
+        }
     }
 }

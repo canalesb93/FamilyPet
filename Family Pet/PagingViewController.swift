@@ -12,6 +12,7 @@ import UIKit
 
 protocol PagingViewDelegate {
     func showPet()
+    func newPet()
 }
 
 var navBarHeight: CGFloat?
@@ -46,7 +47,7 @@ class PagingViewController: UIViewController, CAPSPageMenuDelegate, PagingViewDe
         petListController = self.storyboard?.instantiateViewControllerWithIdentifier("PetsViewController") as? ListViewController
         petListController!.title = "pets"
         let feedController = self.storyboard?.instantiateViewControllerWithIdentifier("FeedViewController") as! FeedViewController
-        feedController.title = "feed"
+        feedController.title = "tasks"
         
         petListController?.delegate = self
         
@@ -56,17 +57,20 @@ class PagingViewController: UIViewController, CAPSPageMenuDelegate, PagingViewDe
         // Example:
         
         var parameters: [CAPSPageMenuOption] = [
-            .ScrollMenuBackgroundColor(UIColor(netHex: 0x4C4C4F)),
+            .ScrollMenuBackgroundColor(UIColor(netHex: 0xFFFFFF)),
+            .UnselectedMenuItemLabelColor(UIColor(netHex: 0x4C4C4F)),
+            .SelectedMenuItemLabelColor(UIColor(netHex: 0x4C4C4F)),
             .ViewBackgroundColor(UIColor(netHex: 0xF7F7FF)),
-            .SelectionIndicatorColor(UIColor.orangeColor()),
-            .BottomMenuHairlineColor(UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)),
+            .SelectionIndicatorColor(UIColor(netHex: 0x4C4C4F)),
             .MenuItemFont(UIFont(name: "HelveticaNeue-Light", size: 16.0)!),
+             // .SelectionIndicatorHeight(.0),
             .MenuHeight(35.0),
             .UseMenuLikeSegmentedControl(true),
             .MenuItemSeparatorWidth(0.0),
-            .AddBottomMenuHairline (false),
-            .EnableHorizontalBounce(false),
-//            .MenuItemWidth(90.0),
+            .ScrollAnimationDurationOnMenuItemTap(250),
+            .BottomMenuHairlineColor(UIColor(netHex: 0xC8C8D2)),
+            .AddBottomMenuHairline (true),
+            .EnableHorizontalBounce(true),
             .CenterMenuItems(true)
         ]
         
@@ -87,15 +91,7 @@ class PagingViewController: UIViewController, CAPSPageMenuDelegate, PagingViewDe
     
     func willMoveToPage(controller: UIViewController, index: Int){}
     
-    func didMoveToPage(controller: UIViewController, index: Int){
-        if index == 1 {
-            var b = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newPet")
-            self.navigationItem.rightBarButtonItem = b
-        } else {
-            self.navigationItem.rightBarButtonItem = nil
-        }
-
-    }
+    func didMoveToPage(controller: UIViewController, index: Int){}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

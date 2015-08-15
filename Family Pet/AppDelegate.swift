@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Family Pet
@@ -18,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
-        Parse.enableLocalDatastore()
         
         Pet.registerSubclass()
         Reminder.registerSubclass()
+        
+        Parse.enableLocalDatastore()
         
         // Initialize Parse.
         Parse.setApplicationId("DAszHT3GJ15w6BfeeejMArmtfZrA52El8qvrE5ll",

@@ -11,7 +11,6 @@
 		0A4E6E5B1B758167003AA7DA /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E6E5A1B758167003AA7DA /* AKPickerView.swift */; };
 		0AA0D6541B73390400EF07C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6531B73390400EF07C3 /* AppDelegate.swift */; };
 		0AA0D6561B73390400EF07C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6551B73390400EF07C3 /* LoginViewController.swift */; };
-		0AA0D6591B73390400EF07C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D6571B73390400EF07C3 /* Main.storyboard */; };
 		0AA0D65B1B73390400EF07C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D65A1B73390400EF07C3 /* Images.xcassets */; };
 		0AA0D65E1B73390400EF07C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0D65C1B73390400EF07C3 /* LaunchScreen.xib */; };
 		0AA0D66A1B73390500EF07C3 /* Family_PetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0D6691B73390500EF07C3 /* Family_PetTests.swift */; };
@@ -48,7 +47,6 @@
 		0ABC60C81B740B6A00C31F33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C71B740B6A00C31F33 /* ListViewController.swift */; };
 		0ABC60CA1B74904A00C31F33 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60C91B74904A00C31F33 /* ImageUtil.swift */; };
 		0ABC60CC1B749A1100C31F33 /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */; };
-		0ABC60DB1B74C1F500C31F33 /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ABC60D71B74C1F500C31F33 /* pulltorefresharrow.png */; };
 		0ABC60DC1B74C1F500C31F33 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60D81B74C1F500C31F33 /* PullToRefreshOption.swift */; };
 		0ABC60DD1B74C1F500C31F33 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60D91B74C1F500C31F33 /* PullToRefreshView.swift */; };
 		0ABC60DE1B74C1F500C31F33 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */; };
@@ -61,6 +59,7 @@
 		0ADA9FB71B7D5287006B5CD1 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */; };
 		0ADA9FB91B7D6E08006B5CD1 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */; };
 		0ADA9FBD1B7D8EEE006B5CD1 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA9FBC1B7D8EEE006B5CD1 /* CAPSPageMenu.swift */; };
+		0ADA9FC71B7DE10C006B5CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA9FC61B7DE10C006B5CD1 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +79,6 @@
 		0AA0D6521B73390400EF07C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA0D6531B73390400EF07C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA0D6551B73390400EF07C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0AA0D6581B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AA0D65A1B73390400EF07C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AA0D65D1B73390400EF07C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0AA0D6631B73390500EF07C3 /* Family PetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Family PetTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +120,6 @@
 		0ABC60C71B740B6A00C31F33 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0ABC60C91B74904A00C31F33 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		0ABC60CB1B749A1100C31F33 /* PetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
-		0ABC60D71B74C1F500C31F33 /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulltorefresharrow.png; sourceTree = "<group>"; };
 		0ABC60D81B74C1F500C31F33 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
 		0ABC60D91B74C1F500C31F33 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
@@ -135,6 +132,7 @@
 		0ADA9FB61B7D5287006B5CD1 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		0ADA9FB81B7D6E08006B5CD1 /* ButtonAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 		0ADA9FBC1B7D8EEE006B5CD1 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		0ADA9FC61B7DE10C006B5CD1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,8 +200,8 @@
 				0AA0D6981B7343FA00EF07C3 /* Utilities */,
 				0AA0D6971B7343E500EF07C3 /* Views */,
 				0AA0D6B01B735E9800EF07C3 /* Other */,
-				0AA0D6571B73390400EF07C3 /* Main.storyboard */,
 				0AA0D65A1B73390400EF07C3 /* Images.xcassets */,
+				0ADA9FC61B7DE10C006B5CD1 /* Main.storyboard */,
 				0AA0D65C1B73390400EF07C3 /* LaunchScreen.xib */,
 				0AA0D6511B73390400EF07C3 /* Supporting Files */,
 				0AA0D68E1B733FC900EF07C3 /* Familiy-Pet-Bridging-Header.h */,
@@ -322,7 +320,6 @@
 		0ABC60D61B74C1BF00C31F33 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				0ABC60D71B74C1F500C31F33 /* pulltorefresharrow.png */,
 				0ABC60D81B74C1F500C31F33 /* PullToRefreshOption.swift */,
 				0ABC60D91B74C1F500C31F33 /* PullToRefreshView.swift */,
 				0ABC60DA1B74C1F500C31F33 /* UIScrollViewExtension.swift */,
@@ -442,10 +439,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA0D6591B73390400EF07C3 /* Main.storyboard in Resources */,
 				0AA0D65E1B73390400EF07C3 /* LaunchScreen.xib in Resources */,
+				0ADA9FC71B7DE10C006B5CD1 /* Main.storyboard in Resources */,
 				0AA0D65B1B73390400EF07C3 /* Images.xcassets in Resources */,
-				0ABC60DB1B74C1F500C31F33 /* pulltorefresharrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,14 +513,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0AA0D6571B73390400EF07C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AA0D6581B73390400EF07C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0AA0D65C1B73390400EF07C3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -626,6 +614,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -643,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ricardo Canales (C94V4FFYYH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

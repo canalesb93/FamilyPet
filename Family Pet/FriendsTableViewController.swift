@@ -11,18 +11,36 @@ import Parse
 
 var friendsSelected = [PFUser]()
 
-class FriendsTableViewController: UITableViewController {
+class FriendsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var popupView: UIView!
 
+    @IBOutlet var tableView: UITableView!
     var friends = [PFUser]()
     var selected = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.popupView.layer.cornerRadius = 5
+        self.view.layer.shadowOpacity = 0.8
+        self.view.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        self.view.layer.shadowRadius = 40.0
+        
         self.navigationItem.title = "Friends"
         
-        let request = FBSDKGraphRequest(graphPath:"me?fields=friends", parameters:nil)
+        loadData()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
+    func loadData(){
+        self.showWaitOverlay()
 
+        let request = FBSDKGraphRequest(graphPath:"me?fields=friends", parameters:nil)
+        
         request.startWithCompletionHandler { (connection, result, error) -> Void in
             if error == nil {
                 var resultDict = result as! NSDictionary
@@ -45,7 +63,7 @@ class FriendsTableViewController: UITableViewController {
                         }
                     }
                     friendIds.append(id)
-
+                    
                     // println("the id value is \(id)")
                 }
                 
@@ -56,6 +74,7 @@ class FriendsTableViewController: UITableViewController {
                     if error == nil {
                         self.friends = results as! [PFUser]
                         self.tableView.reloadData()
+                        self.removeAllOverlays()
                     }
                 })
                 
@@ -63,16 +82,6 @@ class FriendsTableViewController: UITableViewController {
             }
         }
 
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -97,6 +106,21 @@ class FriendsTableViewController: UITableViewController {
         return nil
     }
 
+    @IBAction func cancel(sender: AnyObject) {
+        let button = sender as! UIButton
+        button.animateSlingPress()
+        dismissViewControllerAnimated(true, completion: { () -> Void in })
+    }
+    @IBAction func close(sender: AnyObject) {
+        let button = sender as! UIButton
+        button.animateSlingPress()
+        let parent = self.presentingViewController as! AddPetViewController
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+            parent.setOwnersButtonTitle()
+        })
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,19 +128,19 @@ class FriendsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return friends.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! UITableViewCell
         let friend = friends[indexPath.row]
         if let first_name = friend["first_name"] as? String,
@@ -134,13 +158,13 @@ class FriendsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         selected[indexPath.row] = true
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.accessoryType = UITableViewCellAccessoryType.None
         selected[indexPath.row] = false

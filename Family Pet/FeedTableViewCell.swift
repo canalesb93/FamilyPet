@@ -13,6 +13,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var typeIcon: UIImageView!
     @IBOutlet var date: UILabel!
     @IBOutlet var statusIcon: UIImageView!
+    @IBOutlet var facebookIcon: UIImageView!
+    @IBOutlet var userName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

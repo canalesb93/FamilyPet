@@ -38,6 +38,8 @@ class Reminder: PFObject, PFSubclassing {
     @NSManaged var frequency: ReminderFrequency.RawValue
     @NSManaged var queue: ReminderQueue.RawValue
     @NSManaged var completed: Bool
+    @NSManaged var completedDate: NSDate
+    @NSManaged var queue_turn: Int
     
     
     //1
@@ -63,7 +65,10 @@ class Reminder: PFObject, PFSubclassing {
         self.weekday = weekday
         self.frequency = frequency.rawValue
         self.queue = queue.rawValue
+        
         self.completed = false
+        self.completedDate = NSDate().dateAtStartOfDay()
+        self.queue_turn = 0
     }
     
     func getName() -> NSMutableAttributedString {

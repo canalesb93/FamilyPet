@@ -20,12 +20,11 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var ownersButton: UIButton!
     
     var imageAdded = false
-    var petType = PetType.Other
+    var petType = PetType.Dog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadData", name: loadPetNotificationKey, object: nil)
+    
         
         petProfile.layer.cornerRadius = petProfile.frame.size.width / 2;
         petProfile.clipsToBounds = true
@@ -57,6 +56,10 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
 //        view.addGestureRecognizer(tap)
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+        if selectedPet != nil {
+            loadData()
+        }
 
     }
     
@@ -88,6 +91,15 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         }
         petProfile.file = selectedPet?.image
         petProfile.loadInBackground()
+        switch(selectedPet!.type){
+        case 0:
+            petType = PetType.Dog
+        case 1:
+            petType = PetType.Cat
+        default:
+            petType = PetType.Other
+        }
+
         friendsSelected.removeAll(keepCapacity: false)
         
         var relation = selectedPet!.relationForKey("owners")
@@ -114,7 +126,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         segmentedControl.selectedIndex = 0
         petProfile.image = UIImage(named: "dogCamera")
         friendsSelected.removeAll(keepCapacity: false)
-        selectedPet = nil
         setOwnersButtonTitle()
     }
     
@@ -129,51 +140,6 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    @IBAction func takePicture(sender: AnyObject) {
-        //Open a UIImagePickerController to select the picture
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func cancel(sender: AnyObject) {
-        var button = sender as! UIButton
-        self.clearData()
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in })
-        button.animateSlingPress { () -> Void in }
-        
-    }
-    
-    @IBAction func save(sender: AnyObject) {
-        
-        nameLabel.resignFirstResponder()
-        
-        //Disable the send button until we are ready
-        // .enabled = false
-        
-        self.showWaitOverlay()
-        
-        let pictureData = UIImageJPEGRepresentation(petProfile.image!, CGFloat(0.75))
-        let file = PFFile(name: "image", data: pictureData)
-        
-        file.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-            if succeeded {
-                //2
-                self.setPetRelations(file)
-            } else if let error = error {
-                //3
-                println("Error \(error)")
-                //                self.showErrorView(error)
-            }
-            self.removeAllOverlays()
-            
-            }, progressBlock: { percent in
-                //4
-                println("Uploaded: \(percent)%")
-        })
-        
-    }
     
     func segmentValueChanged(sender: AnyObject?){
         if segmentedControl.selectedIndex == 0 {
@@ -185,18 +151,70 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func ownersButton(sender: AnyObject) {
+        let button = sender as! UIButton
+        button.animateSlingPress()
     }
     
-    func setPetRelations(file: PFFile?){
-        
-        
-        var newFile:PFFile?
-        if imageAdded {
-            newFile = file
+    @IBAction func takePicture(sender: AnyObject) {
+        //Open a UIImagePickerController to select the picture
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.showWaitOverlay()
+        presentViewController(imagePicker, animated: true) { () -> Void in
+            self.removeAllOverlays()
         }
+    }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        var button = sender as! UIButton
+        button.animateSlingPress()
+        self.clearData()
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+        
+        
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        
+        let button = sender as! UIButton
+        button.animateSlingPress()
+        
+        nameLabel.resignFirstResponder()
+        
+        //Disable the send button until we are ready
+        // .enabled = false
+        
+        self.showWaitOverlay()
+        if self.imageAdded {
+            let pictureData = UIImageJPEGRepresentation(petProfile.image!, CGFloat(0.75))
+            let file = PFFile(name: "image", data: pictureData)
+            file.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                if succeeded {
+                    //2
+                    self.setPetRelations(file)
+                } else if let error = error {
+                    //3
+                    println("Error \(error)")
+                    //                self.showErrorView(error)
+                }
+                self.removeAllOverlays()
+                
+                }, progressBlock: { percent in
+                    self.removeAllOverlays()
+                    self.showWaitOverlayWithText("Uploaded: \(percent)%")
+                    println("Uploaded: \(percent)%")
+            })
+        } else {
+            setPetRelations(nil)
+        }
+        
+    }
+
+    
+    func setPetRelations(newFile: PFFile?){
+        
         
         // let’s say we have a few objects representing Author objects
         let owner = PFUser.currentUser()!
@@ -217,6 +235,12 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
                         for var i = 0; i < friendsSelected.count; i++ {
                             relation.addObject(friendsSelected[i])
                         }
+                        if self.imageAdded {
+                            pet.image = newFile
+                        }
+                        pet.name = self.nameLabel.text
+                        pet.type = self.petType.rawValue
+                        pet.attributes = self.descriptionLabel.text
                         self.savePet(pet)
                     }
                 }
@@ -241,6 +265,7 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
                 //3
                 self.clearData()
                 NSNotificationCenter.defaultCenter().postNotificationName(reloadRequestNotificationKey, object: self)
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in })
                 
             } else {
                 //4
@@ -252,6 +277,13 @@ class AddPetViewController: UIViewController, UITextFieldDelegate {
         }
         
         
+    }
+    
+
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 }
